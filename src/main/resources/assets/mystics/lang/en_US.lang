@@ -1,0 +1,26 @@
+# Items
+item.mystics:TestSword.name=Test Sword
+item.mystics:ZeusSword.name=Zeus's Sword
+item.mystics:HadesSword.name=Hades' Sword
+item.mystics:EchidnaSword.name=Echidna's Sword
+
+item.mystics:ZeusHilt.name=Zeus's Hilt
+item.mystics:HadesHilt.name=Hades' Hilt
+item.mystics:EchidnaHilt.name=Echidna's Hilt
+
+item.mystics:BottledFluidLightning.name=Bottled Lightning
+item.mystics:BottledFluidDragonFire.name=Bottled Dragon Fire
+item.mystics:BottledFluidAcid.name=Bottled Acid
+
+item.mystics:CrystalLightning.name=Crystallized Lightning Shard
+item.mystics:CrystalDragonFire.name=Crystallized Dragon Fire Shard
+item.mystics:CrystalAcid.name=Crystallized Acid Shard
+
+# Creative tabs
+itemGroup.Mystics=God Swords
+
+# Blocks
+tile.mystics:ChargedBlock.name=Charged Ore
+tile.mystics:FluidLightning.name=Liquid Lightning
+tile.mystics:FluidDragonFire.name=Liquid Dragon Fire
+tile.mystics:FluidAcid.name=Acid

@@ -1,0 +1,21 @@
+[
+{
+  "modid": "Mystics",
+  "name": "Mystics",
+  "description": "Adds new mythical items to the game!",
+  "version": "0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Spyproof"
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
