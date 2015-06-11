@@ -1,9 +1,10 @@
 package be.spyproof.mystics.blocks;
 
 import be.spyproof.mystics.init.RegisterGodItems;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
-import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * Created by Spyproof.
@@ -17,8 +18,9 @@ public class ChargedBlock extends GodOre
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
-        return RegisterGodItems.crystallisedLightning;
+        //return super.getDrops(world, x, y, z, metadata, fortune);
+        return new ArrayList<ItemStack>(){{add(new ItemStack(RegisterGodItems.crystals, 1, 0));}};
     }
 }

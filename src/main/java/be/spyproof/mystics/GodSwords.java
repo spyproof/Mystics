@@ -3,7 +3,7 @@ package be.spyproof.mystics;
 import be.spyproof.mystics.handler.ConfigHandler;
 import be.spyproof.mystics.handler.EntityEventHandler;
 import be.spyproof.mystics.handler.ItemEventHandler;
-import be.spyproof.mystics.handler.Recipies;
+import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.init.RegisterGodEntities;
 import be.spyproof.mystics.init.RegisterGodItems;
@@ -63,7 +63,7 @@ public class GodSwords
 
 
         //Add recipies
-        new Recipies();
+        new Recipes();
     }
 
     @Mod.EventHandler

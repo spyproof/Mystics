@@ -1,11 +1,11 @@
 package be.spyproof.mystics.item.swords;
 
+import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.item.entity.ItemEntityFireproof;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import be.spyproof.mystics.util.PlayerHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by Spyproof.
  */
-public class ItemHadesGodSword extends ItemGodSword
+public class ItemHadesGodSword extends BoundSword
 {
     public ItemHadesGodSword()
     {
@@ -34,10 +34,11 @@ public class ItemHadesGodSword extends ItemGodSword
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-        super.onItemRightClick(itemStack, world, player);
-
-        if (canUse(itemStack, player, null))
+        try {
+            super.onItemRightClick(itemStack, world, player);
+        } catch (NullPointerException e) {
             return itemStack;
+        }
 
         if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
         {
@@ -49,16 +50,6 @@ public class ItemHadesGodSword extends ItemGodSword
 
 
         return itemStack;
-    }
-
-    @Override
-    public boolean canUse(ItemStack itemStack, EntityLivingBase sender, Entity target)
-    {
-        if (!super.canUse(itemStack, sender, target))
-            return false;
-
-        //Check config stuff
-        return true;
     }
 
     @Override

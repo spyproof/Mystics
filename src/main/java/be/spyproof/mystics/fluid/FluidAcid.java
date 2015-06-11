@@ -34,7 +34,7 @@ public class FluidAcid extends BaseFluid
 
         if (entity instanceof EntityLivingBase)
         {
-            entity.attackEntityFrom(GodlyDamageSource.acid, 3);
+            entity.attackEntityFrom(GodlyDamageSource.pure, 3);
         }else if (entity instanceof EntityItem) {
             if (!(entity instanceof EntityFluidCrafting))
                 entity.setDead();

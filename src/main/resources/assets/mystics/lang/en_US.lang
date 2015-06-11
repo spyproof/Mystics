@@ -4,9 +4,9 @@ item.mystics:ZeusSword.name=Zeus's Sword
 item.mystics:HadesSword.name=Hades' Sword
 item.mystics:EchidnaSword.name=Echidna's Sword
 
-item.mystics:ZeusHilt.name=Zeus's Hilt
-item.mystics:HadesHilt.name=Hades' Hilt
-item.mystics:EchidnaHilt.name=Echidna's Hilt
+item.mystics:HiltZeus.name=Zeus's Hilt
+item.mystics:HiltHades.name=Hades' Hilt
+item.mystics:HiltEchidna.name=Echidna's Hilt
 
 item.mystics:BottledFluidLightning.name=Bottled Lightning
 item.mystics:BottledFluidDragonFire.name=Bottled Dragon Fire

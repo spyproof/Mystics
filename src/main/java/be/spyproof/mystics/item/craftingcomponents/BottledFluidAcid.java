@@ -1,7 +1,7 @@
 package be.spyproof.mystics.item.craftingcomponents;
 
 import be.spyproof.mystics.init.RegisterGodBlocks;
-import be.spyproof.mystics.item.BaseItem;
+import be.spyproof.mystics.item.bases.BaseItem;
 import be.spyproof.mystics.item.entity.ItemEntityThrowable;
 import be.spyproof.mystics.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +25,7 @@ public class BottledFluidAcid extends BaseItem
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean p_77624_4_)
     {
         list.add("The glass keeps the");
-        list.add("acid safely inside");
+        list.add("pure safely inside");
     }
 
     @Override

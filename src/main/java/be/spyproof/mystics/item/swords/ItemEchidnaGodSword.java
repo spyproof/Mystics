@@ -1,5 +1,6 @@
 package be.spyproof.mystics.item.swords;
 
+import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,7 +10,7 @@ import net.minecraft.potion.PotionEffect;
 /**
  * Created by Spyproof.
  */
-public class ItemEchidnaGodSword extends ItemGodSword
+public class ItemEchidnaGodSword extends BoundSword
 {
     public ItemEchidnaGodSword()
     {

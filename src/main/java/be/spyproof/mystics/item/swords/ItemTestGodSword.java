@@ -1,5 +1,6 @@
 package be.spyproof.mystics.item.swords;
 
+import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import be.spyproof.mystics.util.PlayerHelper;
@@ -12,7 +13,7 @@ import net.minecraft.world.World;
 /**
  * Created by Spyproof.
  */
-public class ItemTestGodSword extends ItemGodSword
+public class ItemTestGodSword extends BoundSword
 {
     public ItemTestGodSword()
     {
@@ -23,10 +24,11 @@ public class ItemTestGodSword extends ItemGodSword
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-        super.onItemRightClick(itemStack, world, player);
-
-        if (canUse(itemStack, player, null))
+        try {
+            super.onItemRightClick(itemStack, world, player);
+        } catch (NullPointerException e) {
             return itemStack;
+        }
 
         MovingObjectPosition mop = PlayerHelper.getLookPos(player);
 

@@ -1,7 +1,7 @@
 package be.spyproof.mystics.item.craftingcomponents;
 
 import be.spyproof.mystics.init.RegisterGodBlocks;
-import be.spyproof.mystics.item.BaseItem;
+import be.spyproof.mystics.item.bases.BaseItem;
 import be.spyproof.mystics.item.entity.ItemEntityThrowable;
 import be.spyproof.mystics.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;

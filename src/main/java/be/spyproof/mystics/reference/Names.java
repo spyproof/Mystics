@@ -12,19 +12,15 @@ public class Names
         public static final String HADES_SWORD = "HadesSword";
         public static final String ECHIDNA_SWORD = "EchidnaSword";
 
-        public static final String ZEUS_HILT = "ZeusHilt";
-        public static final String ECHIDNA_HILT = "EchidnaHilt";
-        public static final String HADES_HILT = "HadesHilt";
-
-        public static final String[] SWORD_SUBTYPES = {"Deactivated", "Activated"};
+        public static final String HILT = "Hilt";
+        public static final String[] HILT_SUBTYPES = {"Zeus", "Hades", "Echidna"};
 
         public static final String BOTTLED_FLUID_LIGHTNING = "BottledFluidLightning";
         public static final String BOTTLED_FLUID_DRAGON_FIRE = "BottledFluidDragonFire";
         public static final String BOTTLED_FLUID_ACID = "BottledFluidAcid";
 
-        public static final String CRYSTAL_LIGHTNING = "CrystalLightning";
-        public static final String CRYSTAL_DRAGON_FIRE = "CrystalDragonFire";
-        public static final String CRYSTAL_ACID = "CrystalAcid";
+        public static final String CRYSTAL = "Crystal";
+        public static final String[] ORE_SUBTYPES = {"Lightning", "DragonFire", "Acid"};
     }
 
     public static final class Entities

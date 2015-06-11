@@ -1,10 +1,12 @@
 package be.spyproof.mystics.fluid;
 
+import be.spyproof.mystics.handler.GodlyDamageSource;
 import be.spyproof.mystics.item.entity.LightningEntity;
 import be.spyproof.mystics.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
@@ -26,6 +28,10 @@ public class FluidLightning extends BaseFluid
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
         super.onEntityCollidedWithBlock(world, x, y, z, entity);
+
+        if (entity instanceof EntityLivingBase) {
+            entity.attackEntityFrom(GodlyDamageSource.pure, 2);
+        }
     }
 
     @Override

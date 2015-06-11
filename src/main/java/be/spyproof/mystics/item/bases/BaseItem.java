@@ -1,7 +1,7 @@
-package be.spyproof.mystics.item;
+package be.spyproof.mystics.item.bases;
 
 import be.spyproof.mystics.creativeTab.CreativeTabGodSwords;
-import be.spyproof.mystics.reference.Reference;
+import be.spyproof.mystics.reference.Textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -22,7 +22,7 @@ public class BaseItem extends Item
     @Override
     public String getUnlocalizedName()
     {
-        return String.format("item.%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
@@ -45,6 +45,8 @@ public class BaseItem extends Item
 
     protected String getUnwrappedUnlocalizedName(String name)
     {
+        if (name.contains(":"))
+            return name.substring(name.indexOf(":") + 1);
         return name.substring(name.indexOf(".") + 1);
     }
 }

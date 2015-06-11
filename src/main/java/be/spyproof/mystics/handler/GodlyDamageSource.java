@@ -7,7 +7,7 @@ import net.minecraft.util.DamageSource;
  */
 public class GodlyDamageSource extends DamageSource
 {
-    public static GodlyDamageSource acid = new GodlyDamageSource("acid");
+    public static GodlyDamageSource pure = new GodlyDamageSource("pure");
 
     public GodlyDamageSource(String damageType)
     {
