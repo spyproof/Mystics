@@ -22,6 +22,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Created by Spyproof.
+ * A lot of code has been inspired by bloodmagic! @ https://github.com/WayofTime
+ *
  * Want to learn about modding? Here is where I learned the stuff for this mod
  *  - https://www.youtube.com/playlist?list=PLQPiZYWovwmnZlgvbHCbz6TefIgeEiVcj < beginners
  *  - https://www.youtube.com/playlist?list=PL5oCR-MRH-12rXI0USklAz6rQagXr4nl5 < advanced (Follow up to the first playlist)

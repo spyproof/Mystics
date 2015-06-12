@@ -81,10 +81,6 @@ public class ContainerFluidCrafting extends BaseContainer
     @Override
     public boolean canInteractWith(EntityPlayer player)
     {
-        /*if (player.getCurrentEquippedItem().getItem() instanceof BoundTool)
-            return true;
-        else
-            return false;*/
         return true;
     }
 
@@ -98,24 +94,6 @@ public class ContainerFluidCrafting extends BaseContainer
     public void putStackInSlot(int slot, ItemStack itemStack)
     {
         super.putStackInSlot(slot, itemStack);
-        //if (getContainerInputSlots().contains(slot))
-        //    updateOutputSlot();
     }
 
-    /*protected void updateOutputSlot()
-    {
-
-    }
-
-    protected List<Integer> getContainerInputSlots()
-    {
-        List<Integer> slots = new ArrayList<Integer>();
-
-        for (int i = 0; i < 2; i++) // 2 = amount of slots
-        {
-            slots.add(this.inventorySlots.size() - 3 - i); // 3 = total amount of container slots
-        }
-
-        return slots;
-    }*/
 }

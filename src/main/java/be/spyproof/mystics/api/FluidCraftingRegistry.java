@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class FluidCraftingRegistry
 {
-    private static List<FluidCraftingRecipe> fluidRecipes = new LinkedList<FluidCraftingRecipe>();
+    public static List<FluidCraftingRecipe> fluidRecipes = new LinkedList<FluidCraftingRecipe>();
 
     public static void registerFluidRecipe(ItemStack result, ItemStack requiredItem, Block block)
     {
@@ -39,10 +39,13 @@ public class FluidCraftingRegistry
         if(testItem == null)
     		return false;
 
-
         for (FluidCraftingRecipe recipe : fluidRecipes)
-            if (recipe.doItemsMatch(testItem))
+        {
+            if (recipe.usesItem(testItem))
                 return true;
+            else if (new ItemStack(recipe.getBlock()).getItem() == testItem.getItem())
+                return true;
+        }
 
         return false;
     }
@@ -63,16 +66,6 @@ public class FluidCraftingRegistry
     @SubscribeEvent
     public void onItemDrop(ItemTossEvent event)
     {
-        /*for (int i = 0; i < event.drops.size(); i++)
-        {
-            //See if the item is a crafting component
-            if (isRequiredForCrafting(event.drops.get(i).getEntityItem()))
-            {
-               //Change the entity
-                event.drops.set(i, new EntityFluidCrafting(event.entity.worldObj, event.entity.posX, event.entity.posY, event.entity.posZ, event.drops.get(i).getEntityItem()));
-            }
-        }*/
-
         if (isRequiredForCrafting(event.entityItem.getEntityItem()))
         {
             event.setCanceled(true);

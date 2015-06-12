@@ -24,25 +24,19 @@ public class FluidCraftingRecipe
         return this.result;
     }
 
+    public boolean hasResult(ItemStack itemStack)
+    {
+        return doItemsMatch(itemStack, this.result);
+    }
+
     public ItemStack getItem()
     {
         return this.inputItem;
     }
 
-    public boolean doItemsMatch(ItemStack itemStack)
+    public boolean usesItem(ItemStack itemStack)
     {
-        /*if (this.getItem().getItem() == itemStack.getItem() && this.getItem().getItemDamage() == itemStack.getItemDamage())
-            return true;*/
-        if (this.getItem().getItem().getHasSubtypes())
-        {
-            if (this.getItem().getItemDamage() != itemStack.getItemDamage())
-                return false;
-        }
-
-        if (this.getItem().getItem() == itemStack.getItem())
-            return true;
-
-        return false;
+        return doItemsMatch(itemStack, this.getItem());
     }
 
     public Block getBlock()
@@ -50,12 +44,36 @@ public class FluidCraftingRecipe
         return this.inputBlock;
     }
 
+    public boolean usesBlock(ItemStack block)
+    {
+        return doItemsMatch(new ItemStack(this.inputBlock), block);
+    }
+
+    public boolean usesBlock(Block block)
+    {
+        return this.inputBlock == block;
+    }
+
     public boolean matches(ItemStack comparedStack, Block block)
     {
         if (comparedStack == null || block == null)
             return false;
 
-        if (doItemsMatch(comparedStack) && block == inputBlock)
+        if (doItemsMatch(comparedStack, this.getItem()) && block == inputBlock)
+            return true;
+
+        return false;
+    }
+
+    private boolean doItemsMatch(ItemStack itemStack1, ItemStack itemStack2)
+    {
+        if (itemStack2.getItem().getHasSubtypes())
+        {
+            if (itemStack2.getItemDamage() != itemStack1.getItemDamage())
+                return false;
+        }
+
+        if (itemStack2.getItem() == itemStack1.getItem())
             return true;
 
         return false;

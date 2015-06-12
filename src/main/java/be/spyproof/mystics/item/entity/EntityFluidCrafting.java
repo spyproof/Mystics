@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 /**
  * Created by Spyproof.
  */
-public class EntityFluidCrafting extends ItemEntityFireproof
+public class EntityFluidCrafting extends EntityItem
 {
     private boolean destroyBlock = true;
 
@@ -36,12 +36,5 @@ public class EntityFluidCrafting extends ItemEntityFireproof
                 this.worldObj.setBlock(x, y, z, Blocks.air);
             this.setDead();
         }
-        /*if (this.crafting.containsKey(this.worldObj.getBlock(x, y, z)))
-        {
-            this.worldObj.spawnEntityInWorld(new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, this.crafting.get(this.worldObj.getBlock(x, y, z))));
-            if (this.destroyBlock)
-                this.worldObj.setBlock(x, y, z, Blocks.air);
-            this.setDead();
-        }*/
     }
 }
