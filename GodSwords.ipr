@@ -204,15 +204,4 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
-  <component name="libraryTable">
-    <library name="Plugins">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../Minecraft/plugins/1.7.10/GriefPrevention.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../Minecraft/plugins/1.7.10/WorldGuard.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../Minecraft/plugins/1.7.10/Vault.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-  </component>
 </project>

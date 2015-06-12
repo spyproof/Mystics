@@ -1,8 +1,9 @@
 package be.spyproof.mystics;
 
+import be.spyproof.mystics.api.FluidCraftingRegistry;
+import be.spyproof.mystics.client.gui.GuiHandler;
 import be.spyproof.mystics.handler.ConfigHandler;
 import be.spyproof.mystics.handler.EntityEventHandler;
-import be.spyproof.mystics.handler.ItemEventHandler;
 import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.init.RegisterGodEntities;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
@@ -32,10 +34,11 @@ import net.minecraftforge.common.MinecraftForge;
  *    - https://github.com/agaricusb/ForgeMod/wiki/List-of-Open-Source-Forge-Mods
  */
 @Mod(useMetadata = true, modid = Reference.MOD_ID, canBeDeactivated = true, guiFactory = Reference.GUI_FACTORY_CLASS)
-public class GodSwords
+public class Mystics
 {
     @Mod.Instance(Reference.MOD_ID)
-    public static GodSwords instance;
+    public static Mystics instance;
+    public static FluidCraftingRegistry fluidCraftingRegistry = new FluidCraftingRegistry();
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
@@ -56,10 +59,11 @@ public class GodSwords
         new RegisterGodEntities();
 
         //Register listeners
-        ItemEventHandler itemEventHandler = new ItemEventHandler();
         MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
-        MinecraftForge.EVENT_BUS.register(itemEventHandler);
-        FMLCommonHandler.instance().bus().register(itemEventHandler);
+        MinecraftForge.EVENT_BUS.register(new FluidCraftingRegistry());
+
+        //Register GUI handler
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
 
         //Add recipies

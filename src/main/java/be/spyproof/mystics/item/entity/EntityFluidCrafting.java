@@ -1,6 +1,6 @@
 package be.spyproof.mystics.item.entity;
 
-import net.minecraft.block.Block;
+import be.spyproof.mystics.api.FluidCraftingRegistry;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -11,39 +11,11 @@ import net.minecraft.world.World;
  */
 public class EntityFluidCrafting extends ItemEntityFireproof
 {
-    private ItemStack craftedItem;
-    private Block craftingFluid;
     private boolean destroyBlock = true;
 
-    public EntityFluidCrafting(World world)
+    public EntityFluidCrafting(World world, double x, double y, double z, ItemStack originalItem) //originalItem + fluid = new Itemstack
     {
-        super(world);
-    }
-
-    public EntityFluidCrafting(World world, double x, double y, double z)
-    {
-        super(world, x, y, z);
-    }
-
-
-    public EntityFluidCrafting(World world, double x, double y, double z, ItemStack itemStack)
-    {
-        super(world, x, y, z);
-    }
-
-
-    public EntityFluidCrafting(World world, double x, double y, double z, ItemStack original, ItemStack newItem, Block fluid)
-    {
-        super(world, x, y, z, original);
-        this.craftedItem = newItem;
-        this.craftingFluid = fluid;
-        this.delayBeforeCanPickup = 20;
-    }
-
-    public EntityFluidCrafting(World world, double x, double y, double z, ItemStack original, ItemStack newItem, Block craftingFluid, boolean destroyBlock)
-    {
-        this(world, x, y, z, original, newItem, craftingFluid);
-        this.destroyBlock = destroyBlock;
+        super(world, x, y, z, originalItem);
     }
 
     @Override
@@ -57,12 +29,19 @@ public class EntityFluidCrafting extends ItemEntityFireproof
         if (z < 0)
             z--;
 
-        if (this.worldObj.getBlock(x, y, z).equals(this.craftingFluid))
+        if (FluidCraftingRegistry.isRequiredItemValid(this.getEntityItem(), this.worldObj.getBlock(x, y, z)))
         {
-            this.worldObj.spawnEntityInWorld(new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, this.craftedItem));
+            this.worldObj.spawnEntityInWorld(new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, FluidCraftingRegistry.getResult(this.getEntityItem(), this.worldObj.getBlock(x, y, z))));
             if (this.destroyBlock)
                 this.worldObj.setBlock(x, y, z, Blocks.air);
             this.setDead();
         }
+        /*if (this.crafting.containsKey(this.worldObj.getBlock(x, y, z)))
+        {
+            this.worldObj.spawnEntityInWorld(new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, this.crafting.get(this.worldObj.getBlock(x, y, z))));
+            if (this.destroyBlock)
+                this.worldObj.setBlock(x, y, z, Blocks.air);
+            this.setDead();
+        }*/
     }
 }

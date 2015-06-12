@@ -14,6 +14,33 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/codechicken/CodeChickenLib/1.7.10-1.1.1.99/cf06d16e2afa2cf9a8386936b7c9488fff71119a/CodeChickenLib-1.7.10-1.1.1.99-dev.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/codechicken/CodeChickenCore/1.7.10-1.0.4.29/cffeaa68718a71f948a16579d954153e22b90f9c/CodeChickenCore-1.7.10-1.0.4.29-dev.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/codechicken/NotEnoughItems/1.7.10-1.0.3.64/af395f6a14d5fb4e4a49c5c21132fb24f2e6999a/NotEnoughItems-1.7.10-1.0.3.64-dev.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
           <root url="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -664,7 +691,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="craftbukkit" level="application" />
-    <orderEntry type="library" name="Plugins" level="project" />
   </component>
 </module>

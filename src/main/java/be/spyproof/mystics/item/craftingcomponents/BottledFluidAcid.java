@@ -25,7 +25,7 @@ public class BottledFluidAcid extends BaseItem
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean p_77624_4_)
     {
         list.add("The glass keeps the");
-        list.add("pure safely inside");
+        list.add("acid safely inside");
     }
 
     @Override
