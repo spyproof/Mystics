@@ -23,10 +23,10 @@ public class NEIFluidRecipeHandler extends TemplateRecipeHandler
         public CachedFluidRecipe(FluidCraftingRecipe recipe)
         {
             List<PositionedStack> inputs = new ArrayList<PositionedStack>();
-            inputs.add(new PositionedStack(recipe.getItem(), 22, 36));
-            inputs.add(new PositionedStack(new ItemStack(recipe.getBlock()), 71, 36));
+            inputs.add(new PositionedStack(recipe.getItem(), 67, 3));
+            inputs.add(new PositionedStack(new ItemStack(recipe.getBlock()), 67, 44));
             this.inputs = inputs;
-            this.output = new PositionedStack(recipe.getResult(), 129, 36);
+            this.output = new PositionedStack(recipe.getResult(), 123, 23);
         }
 
         @Override

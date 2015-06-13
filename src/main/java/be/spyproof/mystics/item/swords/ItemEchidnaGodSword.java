@@ -21,7 +21,7 @@ public class ItemEchidnaGodSword extends BoundSword
     @Override
     public String getItemStackDisplayName(ItemStack itemStack)
     {
-        return "\u00A72" + super.getItemStackDisplayName(itemStack) + "\u00A7r";
+        return Names.Colors.ECHIDNA + super.getItemStackDisplayName(itemStack);
     }
 
     @Override

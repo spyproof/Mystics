@@ -11,16 +11,22 @@ item.mystics:HiltEchidna.name=Echidna's Hilt
 item.mystics:BottledFluidLightning.name=Bottled Lightning
 item.mystics:BottledFluidDragonFire.name=Bottled Dragon Fire
 item.mystics:BottledFluidAcid.name=Bottled Acid
+item.mystics:BottledFluidAir.name=Bottled Pure air
+item.mystics:BottledFluidWater.name=Bottled Living Water
 
-item.mystics:CrystalLightning.name=Crystallized Lightning Shard
-item.mystics:CrystalDragonFire.name=Crystallized Dragon Fire Shard
-item.mystics:CrystalAcid.name=Crystallized Acid Shard
+item.mystics:CrystalLightning.name=Lightning Shard
+item.mystics:CrystalDragonFire.name=Dragon Fire Shard
+item.mystics:CrystalAcid.name=Acid Shard
+item.mystics:CrystalAir.name=Pure Air Shard
+item.mystics:CrystalWater.name=Living Water Shard
 
 # Creative tabs
-itemGroup.Mystics=God Swords
+itemGroup.Mystics=Mystics
 
 # Blocks
 tile.mystics:ChargedBlock.name=Charged Ore
-tile.mystics:FluidLightning.name=Liquid Lightning
-tile.mystics:FluidDragonFire.name=Liquid Dragon Fire
-tile.mystics:FluidAcid.name=Acid
+tile.mystics:FluidLightning.name=Liquefied Lightning
+tile.mystics:FluidDragonFire.name=Liquefied Dragon Fire
+tile.mystics:FluidAcid.name=Liquefied Acid
+tile.mystics:FluidAcid.name=Liquefied Pure Air
+tile.mystics:FluidAcid.name=Living Water

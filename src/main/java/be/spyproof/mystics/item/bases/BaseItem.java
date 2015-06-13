@@ -31,6 +31,12 @@ public class BaseItem extends Item
         return getUnlocalizedName();
     }
 
+    @Override
+    public String getItemStackDisplayName(ItemStack itemStack)
+    {
+        return super.getItemStackDisplayName(itemStack) + "\u00A7r";
+    }
+
     /**
      * Rendering
      */

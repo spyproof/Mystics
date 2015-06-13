@@ -31,7 +31,7 @@ public class ItemZeusGodSword extends BoundSword
     @Override
     public String getItemStackDisplayName(ItemStack itemStack)
     {
-        return "\u00A7e" + super.getItemStackDisplayName(itemStack) + "\u00A7r";
+        return Names.Colors.ZEUS + super.getItemStackDisplayName(itemStack);
     }
 
     @Override

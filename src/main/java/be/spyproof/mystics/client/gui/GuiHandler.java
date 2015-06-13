@@ -1,11 +1,7 @@
 package be.spyproof.mystics.client.gui;
 
-import be.spyproof.mystics.init.RegisterGodBlocks;
-import be.spyproof.mystics.init.RegisterGodItems;
-import be.spyproof.mystics.inventory.ContainerFluidCrafting;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
@@ -33,7 +29,7 @@ public class GuiHandler implements IGuiHandler
     {
         switch(GuiIDs.values()[ID]){
             case DROP_ON_FLUID:
-                return new ContainerFluidCrafting(player.inventory, new ItemStack(RegisterGodItems.hilts, 1, 0), new ItemStack(RegisterGodBlocks.fluidBlockLightning));
+                return null;
         }
 
         throw new IllegalArgumentException("Did not find the GUI with id " + ID);

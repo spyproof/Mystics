@@ -28,7 +28,7 @@ public class ItemHadesGodSword extends BoundSword
     @Override
     public String getItemStackDisplayName(ItemStack itemStack)
     {
-        return "\u00A74" + super.getItemStackDisplayName(itemStack) + "\u00A7r";
+        return Names.Colors.HADES + super.getItemStackDisplayName(itemStack);
     }
 
     @Override

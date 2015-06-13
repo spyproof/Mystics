@@ -1,10 +1,8 @@
 package be.spyproof.mystics.init;
 
-import be.spyproof.mystics.item.bases.BaseDamagedItem;
 import be.spyproof.mystics.item.bases.BoundSword;
-import be.spyproof.mystics.item.craftingcomponents.BottledFluidAcid;
-import be.spyproof.mystics.item.craftingcomponents.BottledFluidDragonFire;
-import be.spyproof.mystics.item.craftingcomponents.BottledFluidLightning;
+import be.spyproof.mystics.item.craftingcomponents.BottledFluid;
+import be.spyproof.mystics.item.craftingcomponents.Crystals;
 import be.spyproof.mystics.item.swords.ItemEchidnaGodSword;
 import be.spyproof.mystics.item.swords.ItemHadesGodSword;
 import be.spyproof.mystics.item.swords.ItemTestGodSword;
@@ -22,12 +20,8 @@ public class RegisterGodItems
     public static final BoundSword echidnaSword = new ItemEchidnaGodSword();
     public static final BoundSword testSword = new ItemTestGodSword();
 
-    public static final BaseDamagedItem crystals = new BaseDamagedItem("Crystal", Names.Items.ORE_SUBTYPES);
-    public static final BaseDamagedItem hilts = new BaseDamagedItem("Hilt", Names.Items.HILT_SUBTYPES);
-
-    public static final BottledFluidLightning bottledFluidLightning = new BottledFluidLightning();
-    public static final BottledFluidDragonFire bottledFluidDragonFire = new BottledFluidDragonFire();
-    public static final BottledFluidAcid bottledFluidAcid = new BottledFluidAcid();
+    public static final Crystals crystals = new Crystals();
+    public static final BottledFluid bottledFluid = new BottledFluid();
 
     public RegisterGodItems()
     {
@@ -36,11 +30,7 @@ public class RegisterGodItems
         GameRegistry.registerItem(echidnaSword, Names.Items.ECHIDNA_SWORD);
         GameRegistry.registerItem(testSword, Names.Items.TEST_SWORD);
 
-        GameRegistry.registerItem(bottledFluidLightning, Names.Items.BOTTLED_FLUID_LIGHTNING);
-        GameRegistry.registerItem(bottledFluidDragonFire, Names.Items.BOTTLED_FLUID_DRAGON_FIRE);
-        GameRegistry.registerItem(bottledFluidAcid, Names.Items.BOTTLED_FLUID_ACID);
-
         GameRegistry.registerItem(crystals, Names.Items.CRYSTAL);
-        GameRegistry.registerItem(hilts, Names.Items.HILT);
+        GameRegistry.registerItem(bottledFluid, Names.Items.BOTTLED_FLUID);
     }
 }

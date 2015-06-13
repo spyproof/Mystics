@@ -12,15 +12,11 @@ public class Names
         public static final String HADES_SWORD = "HadesSword";
         public static final String ECHIDNA_SWORD = "EchidnaSword";
 
-        public static final String HILT = "Hilt";
-        public static final String[] HILT_SUBTYPES = {"Zeus", "Hades", "Echidna"};
-
-        public static final String BOTTLED_FLUID_LIGHTNING = "BottledFluidLightning";
-        public static final String BOTTLED_FLUID_DRAGON_FIRE = "BottledFluidDragonFire";
-        public static final String BOTTLED_FLUID_ACID = "BottledFluidAcid";
+        public static final String BOTTLED_FLUID = "BottledFluid";
+        public static final String[] BOTTLED_FLUID_SUBTYPES = {"Lightning", "DragonFire", "Acid", "Air", "Water"};
 
         public static final String CRYSTAL = "Crystal";
-        public static final String[] ORE_SUBTYPES = {"Lightning", "DragonFire", "Acid"};
+        public static final String[] ORE_SUBTYPES = {"Lightning", "DragonFire", "Acid", "Air", "Water"};
     }
 
     public static final class Entities
@@ -39,4 +35,14 @@ public class Names
         public static final String FLUID_ACID = "FluidAcid";
     }
 
+    public static final class Colors
+    {
+        public static final String ZEUS = "\u00A76";
+        public static final String HADES = "\u00A74";
+        public static final String ECHIDNA = "\u00A72";
+        public static final String AETHER = "\u00A7e";
+        public static final String NEBTUNE = "\u00A79";
+
+        public static final String[] SUBTYPES = {ZEUS, HADES, ECHIDNA, AETHER, NEBTUNE};
+    }
 }

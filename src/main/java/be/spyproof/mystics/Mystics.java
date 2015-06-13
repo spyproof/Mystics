@@ -3,7 +3,6 @@ package be.spyproof.mystics;
 import be.spyproof.mystics.api.FluidCraftingRegistry;
 import be.spyproof.mystics.client.gui.GuiHandler;
 import be.spyproof.mystics.handler.ConfigHandler;
-import be.spyproof.mystics.handler.EntityEventHandler;
 import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.init.RegisterGodEntities;
@@ -51,17 +50,16 @@ public class Mystics
         //Register the config change event
         FMLCommonHandler.instance().bus().register(new ConfigHandler(event.getSuggestedConfigurationFile()));
 
-        //Register items
-        new RegisterGodItems();
-
         //Register blocks
         new RegisterGodBlocks();
+
+        //Register items
+        new RegisterGodItems();
 
         //Register entities
         new RegisterGodEntities();
 
         //Register listeners
-        MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
         MinecraftForge.EVENT_BUS.register(new FluidCraftingRegistry());
 
         //Register GUI handler

@@ -15,7 +15,7 @@ import java.util.Random;
 public class FluidDragonFire extends BaseFluid
 {
 
-    public FluidDragonFire(Fluid fluid)
+    public FluidDragonFire(Fluid fluid) //TODO set players on fire if near when possible
     {
         super(fluid, Material.lava);
         this.setBlockName(Names.Blocks.FLUID_DRAGON_FIRE);
