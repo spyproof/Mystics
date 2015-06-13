@@ -39,7 +39,7 @@ public class ItemZeusGodSword extends BoundSword
     {
         try {
             super.onItemRightClick(itemStack, world, player);
-        } catch (NullPointerException e) {
+        } catch (IllegalArgumentException e) {
             return itemStack;
         }
 
