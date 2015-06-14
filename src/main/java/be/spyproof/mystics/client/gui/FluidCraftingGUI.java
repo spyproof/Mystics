@@ -13,6 +13,4 @@ public class FluidCraftingGUI extends BaseGUI
     {
         super(new ContainerFluidCrafting(player.inventory), Textures.GuiTexture.FLUID_CRAFTING);
     }
-
-
 }

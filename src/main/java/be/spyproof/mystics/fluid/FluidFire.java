@@ -1,21 +1,24 @@
 package be.spyproof.mystics.fluid;
 
 import be.spyproof.mystics.reference.Names;
+import be.spyproof.mystics.util.PlayerHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 
+import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Spyproof.
  */
-public class FluidDragonFire extends BaseFluid
+public class FluidFire extends BaseFluid
 {
 
-    public FluidDragonFire(Fluid fluid) //TODO set players on fire if near when possible
+    public FluidFire(Fluid fluid)
     {
         super(fluid, Material.lava);
         this.setBlockName(Names.Blocks.FLUID_DRAGON_FIRE);
@@ -24,6 +27,7 @@ public class FluidDragonFire extends BaseFluid
     /**
      * A randomly called display update to be able to add particles or other items for display
      */
+
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random)
     {
@@ -56,5 +60,16 @@ public class FluidDragonFire extends BaseFluid
 
             world.spawnParticle("dripLava", d5, d6, d7, 0.0D, 0.0D, 0.0D);
         }
+    }
+
+    @Override
+    public void updateTick(World world, int x, int y, int z, Random rand)
+    {
+        super.updateTick(world, x, y, z, rand);
+
+        int range = 3;
+        List<EntityLivingBase> entities = PlayerHelper.getLivingEntitiesInRange(world, x, y, z, range, range / 2);
+        for (int i = 0; i < entities.size(); i++)
+            entities.get(i).setFire(10);
     }
 }

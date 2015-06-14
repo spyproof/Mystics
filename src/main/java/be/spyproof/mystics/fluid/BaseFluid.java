@@ -76,7 +76,7 @@ public class BaseFluid extends BlockFluidFinite
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
     {
-        //super.onNeighborBlockChange(world, x, y, z, block);
+        super.onNeighborBlockChange(world, x, y, z, block);
     }
 
     @Override

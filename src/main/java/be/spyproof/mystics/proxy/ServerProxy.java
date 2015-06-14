@@ -5,9 +5,5 @@ package be.spyproof.mystics.proxy;
  */
 public class ServerProxy extends CommonProxy
 {
-    @Override
-    public void RegisterRendering()
-    {
 
-    }
 }

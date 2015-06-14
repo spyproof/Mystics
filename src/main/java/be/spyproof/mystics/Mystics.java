@@ -1,7 +1,6 @@
 package be.spyproof.mystics;
 
 import be.spyproof.mystics.api.FluidCraftingRegistry;
-import be.spyproof.mystics.client.gui.GuiHandler;
 import be.spyproof.mystics.handler.ConfigHandler;
 import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;
@@ -16,7 +15,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
@@ -63,7 +61,7 @@ public class Mystics
         MinecraftForge.EVENT_BUS.register(new FluidCraftingRegistry());
 
         //Register GUI handler
-        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+        //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
 
         //Add recipies
@@ -74,7 +72,7 @@ public class Mystics
     public void init(FMLInitializationEvent event)
     {
         new BlockHelper();
-        proxy.RegisterRendering();
+        //proxy.RegisterRendering();
     }
 
     @Mod.EventHandler

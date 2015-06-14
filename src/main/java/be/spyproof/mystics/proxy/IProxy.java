@@ -6,5 +6,5 @@ package be.spyproof.mystics.proxy;
  */
 public interface IProxy
 {
-    void RegisterRendering();
+
 }

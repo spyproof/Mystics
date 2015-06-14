@@ -4,30 +4,18 @@ import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.item.bases.BaseDamagedItem;
 import be.spyproof.mystics.item.entity.ItemEntityThrowable;
 import be.spyproof.mystics.reference.Names;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Spyproof.
  */
 public class BottledFluid extends BaseDamagedItem
 {
-    List<Block> blocks;
-    public BottledFluid() //Plass blocks based on damage value
+    public BottledFluid()
     {
         super(Names.Items.BOTTLED_FLUID, Names.Items.BOTTLED_FLUID_SUBTYPES);
-        this.blocks = new ArrayList<Block>(){{
-            add(RegisterGodBlocks.fluidBlockLightning);
-            add(RegisterGodBlocks.fluidBlockDragonFire);
-            add(RegisterGodBlocks.fluidBlockAcid);
-            add(RegisterGodBlocks.fluidBlockLightning);
-            add(RegisterGodBlocks.fluidBlockLightning);
-        }};
     }
 
     @Override
@@ -45,24 +33,22 @@ public class BottledFluid extends BaseDamagedItem
         {
             ItemEntityThrowable entityThrowable = new ItemEntityThrowable(world, player);
             entityThrowable.setItemStack(new ItemStack(itemStack.getItem(), 1, itemStack.getItemDamage()));
-            if (itemStack.getItemDamage() < this.blocks.size())
-                entityThrowable.setBlock(this.blocks.get(itemStack.getItemDamage()));
             switch (itemStack.getItemDamage())
             {
                 case 0:
                     entityThrowable.setBlock(RegisterGodBlocks.fluidBlockLightning);
                     break;
                 case 1:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockDragonFire);
+                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockFire);
                     break;
                 case 2:
                     entityThrowable.setBlock(RegisterGodBlocks.fluidBlockAcid);
                     break;
                 case 3:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockLightning);
+                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockAir);
                     break;
                 case 4:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockLightning);
+                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockWater);
                     break;
                 default:
                     break;

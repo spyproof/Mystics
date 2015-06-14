@@ -1,12 +1,12 @@
 package be.spyproof.mystics.fluid;
 
-import be.spyproof.mystics.handler.GodlyDamageSource;
-import be.spyproof.mystics.item.entity.LightningEntity;
 import be.spyproof.mystics.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
@@ -16,45 +16,42 @@ import java.util.Random;
 /**
  * Created by Spyproof.
  */
-public class FluidLightning extends BaseFluid
+public class FluidWater extends BaseFluid
 {
-    public FluidLightning(Fluid fluid)
+    public FluidWater(Fluid fluid)
     {
         super(fluid, Material.water);
-        this.setBlockName(Names.Blocks.FLUID_LIGHTNING);
+        this.setBlockName(Names.Blocks.FLUID_LIVING_WATER);
     }
 
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
-        super.onEntityCollidedWithBlock(world, x, y, z, entity);
-
-        if (entity instanceof EntityLivingBase) {
-            entity.attackEntityFrom(GodlyDamageSource.pure, 2);
-        }
+        if (entity instanceof EntityLivingBase)
+            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(10, 10, 1)); //Add healing effect
     }
 
     @Override
     public void updateTick(World world, int x, int y, int z, Random rand)
     {
         super.updateTick(world, x, y, z, rand);
-
-        int range = 3;
-        int x1 = x + rand.nextInt(range*2) - range;
-        int y1 = y;
-        int z1 = z + rand.nextInt(range*2) - range;
-
-        while (!world.isAirBlock(x1, y1, z1) || y1 > 255)
-            y1++;
-
-        if (y1 <= 255)
-            world.addWeatherEffect(new LightningEntity(world, x1, y1, z1));
-    }
-
-    @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
-    {
-        //super.onNeighborBlockChange(world, x, y, z, block);
+        if (rand.nextInt(3) != 1)
+            return;
+        int radius = 2;
+        for (int i = -radius; i <= radius; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                for (int k = -radius; k <= radius; k++)
+                {
+                    if (world.getBlock(x + i, y + j, z + k).equals(Blocks.cobblestone))
+                    {
+                        world.setBlock(x + i, y + j, z + k, Blocks.mossy_cobblestone);
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     @Override

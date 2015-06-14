@@ -5,5 +5,5 @@ package be.spyproof.mystics.proxy;
  */
 public abstract class CommonProxy implements IProxy
 {
-    public abstract void RegisterRendering();
+
 }

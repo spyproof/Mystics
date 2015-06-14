@@ -1,7 +1,10 @@
 package be.spyproof.mystics.client.gui;
 
+import be.spyproof.mystics.inventory.ContainerFluidCrafting;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
@@ -29,7 +32,7 @@ public class GuiHandler implements IGuiHandler
     {
         switch(GuiIDs.values()[ID]){
             case DROP_ON_FLUID:
-                return null;
+                return new ContainerFluidCrafting(player.inventory, new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.cobblestone));
         }
 
         throw new IllegalArgumentException("Did not find the GUI with id " + ID);

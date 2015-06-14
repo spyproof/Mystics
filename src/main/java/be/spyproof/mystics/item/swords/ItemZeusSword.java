@@ -20,9 +20,9 @@ import java.util.Random;
 /**
  * Created by Spyproof.
  */
-public class ItemZeusGodSword extends BoundSword
+public class ItemZeusSword extends BoundSword
 {
-    public ItemZeusGodSword()
+    public ItemZeusSword()
     {
         super();
         this.setUnlocalizedName(Names.Items.ZEUS_SWORD);
@@ -51,7 +51,7 @@ public class ItemZeusGodSword extends BoundSword
             if (!world.isRemote)
             {
                 world.addWeatherEffect(new LightningEntity(world, mop.blockX, mop.blockY + 1, mop.blockZ));
-                if (world.getBlock(mop.blockX, mop.blockY, mop.blockZ).equals(RegisterGodBlocks.chargedBlock))
+                if (world.getBlock(mop.blockX, mop.blockY, mop.blockZ).equals(RegisterGodBlocks.LIGHTNING_BLOCK))
                 {
                     world.setBlock(mop.blockX, mop.blockY, mop.blockZ, Blocks.air);
                     world.spawnEntityInWorld(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(RegisterGodItems.crystals, 2, 0)));

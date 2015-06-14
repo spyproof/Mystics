@@ -17,9 +17,9 @@ import java.util.List;
 /**
  * Created by Spyproof.
  */
-public class ItemHadesGodSword extends BoundSword
+public class ItemHadesSword extends BoundSword
 {
-    public ItemHadesGodSword()
+    public ItemHadesSword()
     {
         super();
         this.setUnlocalizedName(Names.Items.HADES_SWORD);

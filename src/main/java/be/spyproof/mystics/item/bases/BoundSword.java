@@ -52,11 +52,13 @@ public class BoundSword extends BoundTool
      * the damage on the stack.
      */
     @Override
-    public boolean hitEntity(ItemStack itemStack, EntityLivingBase player, EntityLivingBase target)
+    public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase player)
     {
-        boolean a = NBTHelper.getBoolean(itemStack, "isActive");
-        boolean b = NBTHelper.isOwner(itemStack, player);
-        return !NBTHelper.getBoolean(itemStack, "isActive") || NBTHelper.isOwner(itemStack, player);
+        if (target instanceof EntityPlayer)
+            if (((EntityPlayer) target).capabilities.isCreativeMode)
+                return true;
+
+        return !NBTHelper.getBoolean(itemStack, "isActive") || !NBTHelper.isOwner(itemStack, player);
     }
 
     @Override
