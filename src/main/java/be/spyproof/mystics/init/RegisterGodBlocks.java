@@ -4,6 +4,7 @@ import be.spyproof.mystics.blocks.MythicOre;
 import be.spyproof.mystics.fluid.*;
 import be.spyproof.mystics.reference.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -15,7 +16,7 @@ public class RegisterGodBlocks
 {
     public static final MythicOre LIGHTNING_BLOCK = new MythicOre(Names.Blocks.LIGHTNING_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 0));
     public static final MythicOre FIRE_BLOCK = new MythicOre(Names.Blocks.FIRE_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 1));
-    public static final MythicOre WATER_BLOCK = new MythicOre(Names.Blocks.WATER_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 4));
+    public static final MythicOre WATER_BLOCK = new MythicOre(Names.Blocks.WATER_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 4), Material.sand);
 
     public static Fluid fluidLightning = new Fluid("fluidLightning");
     public static FluidLightning fluidBlockLightning;

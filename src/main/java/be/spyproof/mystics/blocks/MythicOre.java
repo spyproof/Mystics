@@ -23,20 +23,26 @@ public class MythicOre extends Block
     protected MythicOre(Material material)
     {
         super(material);
-    }
-
-    public MythicOre()
-    {
-        this(Material.rock);
         this.setCreativeTab(CreativeTabGodSwords.GS_Tab);
         this.blockHardness = 10.0F;
         this.setResistance(7.0F);
         this.setHarvestLevel("pickaxe", 3);
     }
 
+    public MythicOre()
+    {
+        this(Material.rock);
+    }
+
     public MythicOre(String name)
     {
         this();
+        this.setBlockName(name);
+    }
+
+    public MythicOre(String name, Material material)
+    {
+        this(material);
         this.setBlockName(name);
     }
 
@@ -51,6 +57,13 @@ public class MythicOre extends Block
     {
         this(name);
         this.drops = drops;
+    }
+
+    public MythicOre(String name, ItemStack drops, Material material)
+    {
+        this(name, material);
+        this.drops = new ArrayList<ItemStack>();
+        this.drops.add(drops);
     }
 
     @Override

@@ -78,5 +78,8 @@ public class ItemEntityThrowable extends EntityThrowable
         this.setDead();
     }
 
-
+    public ItemStack getItemStack()
+    {
+        return this.itemStack;
+    }
 }

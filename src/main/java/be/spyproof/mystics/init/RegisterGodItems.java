@@ -16,6 +16,7 @@ public class RegisterGodItems
     public static final BoundSword hadesSword = new ItemHadesSword();
     public static final BoundSword medusaSword = new ItemMedusaSword();
     public static final BoundSword aetherSword = new ItemAetherSword();
+    public static final BoundSword neptuneSword = new ItemNeptuneSword();
     public static final BoundSword testSword = new ItemTestSword();
 
     public static final Crystals crystals = new Crystals();
@@ -27,6 +28,7 @@ public class RegisterGodItems
         GameRegistry.registerItem(hadesSword, Names.Items.HADES_SWORD);
         GameRegistry.registerItem(medusaSword, Names.Items.MEDUSA_SWORD);
         GameRegistry.registerItem(aetherSword, Names.Items.AETHER_SWORD);
+        GameRegistry.registerItem(neptuneSword, Names.Items.NEPTUNE_SWORD);
         GameRegistry.registerItem(testSword, Names.Items.TEST_SWORD);
 
         GameRegistry.registerItem(crystals, Names.Items.CRYSTAL);

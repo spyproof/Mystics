@@ -31,7 +31,7 @@ public class BottledFluid extends BaseDamagedItem
 
         if (!world.isRemote)
         {
-            ItemEntityThrowable entityThrowable = new ItemEntityThrowable(world, player);
+            ItemEntityThrowable entityThrowable = new ItemEntityThrowable(world, player); //TODO not throwable & new texture = test tube
             entityThrowable.setItemStack(new ItemStack(itemStack.getItem(), 1, itemStack.getItemDamage()));
             switch (itemStack.getItemDamage())
             {

@@ -5,6 +5,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Blocks;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -28,7 +30,19 @@ public class FluidWater extends BaseFluid
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
         if (entity instanceof EntityLivingBase)
+        {
             ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(10, 10, 1)); //Add healing effect
+            if (entity instanceof EntityPigZombie && !world.isRemote)
+            {
+                EntityPig entitypig = new EntityPig(entity.worldObj);
+                entitypig.setLocationAndAngles(entity.posX, entity.posY+.5, entity.posZ, entity.rotationYaw, entity.rotationPitch);
+                entity.worldObj.spawnEntityInWorld(entitypig);
+                entity.setDead();
+                world.setBlockToAir(x, y, z);
+            }
+        }
+
+
     }
 
     @Override

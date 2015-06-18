@@ -36,5 +36,6 @@ public class Recipes
         FluidCraftingRegistry.registerFluidRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(Items.diamond_sword), RegisterGodBlocks.fluidBlockLightning);
         FluidCraftingRegistry.registerFluidRecipe(new ItemStack(RegisterGodItems.medusaSword), new ItemStack(Items.diamond_sword), RegisterGodBlocks.fluidBlockAcid);
         FluidCraftingRegistry.registerFluidRecipe(new ItemStack(RegisterGodItems.aetherSword), new ItemStack(Items.diamond_sword), RegisterGodBlocks.fluidBlockAir);
+        FluidCraftingRegistry.registerFluidRecipe(new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(Items.diamond_sword), RegisterGodBlocks.fluidBlockWater);
     }
 }

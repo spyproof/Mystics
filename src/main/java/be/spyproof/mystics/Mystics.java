@@ -6,7 +6,7 @@ import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.init.RegisterGodEntities;
 import be.spyproof.mystics.init.RegisterGodItems;
-import be.spyproof.mystics.proxy.IProxy;
+import be.spyproof.mystics.proxy.CommonProxy;
 import be.spyproof.mystics.reference.Reference;
 import be.spyproof.mystics.util.BlockHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -40,7 +40,7 @@ public class Mystics
     public static FluidCraftingRegistry fluidCraftingRegistry = new FluidCraftingRegistry();
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-    public static IProxy proxy;
+    public static CommonProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -72,7 +72,7 @@ public class Mystics
     public void init(FMLInitializationEvent event)
     {
         new BlockHelper();
-        //proxy.RegisterRendering();
+        proxy.registerRendering();
     }
 
     @Mod.EventHandler
