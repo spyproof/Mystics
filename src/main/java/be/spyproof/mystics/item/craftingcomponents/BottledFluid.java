@@ -1,12 +1,14 @@
 package be.spyproof.mystics.item.craftingcomponents;
 
-import be.spyproof.mystics.init.RegisterGodBlocks;
+import be.spyproof.mystics.api.RightClickCraftingRegisty;
 import be.spyproof.mystics.item.bases.BaseDamagedItem;
-import be.spyproof.mystics.item.entity.ItemEntityThrowable;
 import be.spyproof.mystics.reference.Names;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Created by Spyproof.
@@ -25,41 +27,34 @@ public class BottledFluid extends BaseDamagedItem
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int sideId, float hitX, float hitY, float hitZ)
     {
-        world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        ItemStack fluid = RightClickCraftingRegisty.getResult(itemStack);
+        if (fluid == null)
+            return false;
 
-        if (!world.isRemote)
+        Block clickedBlock = world.getBlock(x, y, z);
+
+        if (!clickedBlock.isReplaceable(world, x, y, z))
         {
-            ItemEntityThrowable entityThrowable = new ItemEntityThrowable(world, player); //TODO not throwable & new texture = test tube
-            entityThrowable.setItemStack(new ItemStack(itemStack.getItem(), 1, itemStack.getItemDamage()));
-            switch (itemStack.getItemDamage())
-            {
-                case 0:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockLightning);
-                    break;
-                case 1:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockFire);
-                    break;
-                case 2:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockAcid);
-                    break;
-                case 3:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockAir);
-                    break;
-                case 4:
-                    entityThrowable.setBlock(RegisterGodBlocks.fluidBlockWater);
-                    break;
-                default:
-                    break;
-            }
-            entityThrowable.motionX = player.getLookVec().xCoord;
-            entityThrowable.motionY = player.getLookVec().yCoord;
-            entityThrowable.motionZ = player.getLookVec().zCoord;
-            world.spawnEntityInWorld(entityThrowable);
+            ForgeDirection side = ForgeDirection.getOrientation(sideId);
+            x += side.offsetX;
+            y += side.offsetY;
+            z += side.offsetZ;
         }
 
-        itemStack.stackSize--;
-        return itemStack;
+        if (fluid.getItem() instanceof ItemBlock)
+        {
+            if (world.getBlock(x, y, z).isReplaceable(world, x, y, z))
+            {
+                world.setBlock(x, y, z, Block.getBlockFromItem(fluid.getItem()));
+                if (!player.capabilities.isCreativeMode)
+                    itemStack.stackSize--;
+                return true;
+            }
+        }
+
+
+        return false;
     }
 }

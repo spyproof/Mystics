@@ -49,14 +49,7 @@ public class ItemZeusSword extends BoundSword
             //TODO if you cant hurt players, home into enities
 
             if (!world.isRemote)
-            {
                 world.addWeatherEffect(new LightningEntity(world, mop.blockX, mop.blockY + 1, mop.blockZ));
-                if (world.getBlock(mop.blockX, mop.blockY, mop.blockZ).equals(RegisterGodBlocks.LIGHTNING_BLOCK))
-                {
-                    world.setBlock(mop.blockX, mop.blockY, mop.blockZ, Blocks.air);
-                    world.spawnEntityInWorld(new EntityItem(world, player.posX, player.posY, player.posZ, new ItemStack(RegisterGodItems.crystals, 2, 0)));
-                }
-            }
         }
 
         return itemStack;

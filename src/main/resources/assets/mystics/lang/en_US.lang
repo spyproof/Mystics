@@ -18,6 +18,30 @@ item.mystics:CrystalAcid.name=Acid Shard
 item.mystics:CrystalAir.name=Pure Air Shard
 item.mystics:CrystalWater.name=Living Water Shard
 
+item.mystics:ZeusHelmet.name=Zeus' Helmet
+item.mystics:HadesHelmet.name=Hades' Helmet
+item.mystics:MedusaHelmet.name=Medusa's Helmet
+item.mystics:AetherHelmet.name=Aether's Helmet
+item.mystics:NeptuneHelmet.name=Neptune's Helmet
+
+item.mystics:ZeusChestplate.name=Zeus' Chestplate
+item.mystics:HadesChestplate.name=Hades' Chestplate
+item.mystics:MedusaChestplate.name=Medusa's Chestplate
+item.mystics:AetherChestplate.name=Aether's Chestplate
+item.mystics:NeptuneChestplate.name=Neptune's Chestplate
+
+item.mystics:ZeusLeggings.name=Zeus' Leggings
+item.mystics:HadesLeggings.name=Hades' Leggings
+item.mystics:MedusaLeggings.name=Medusa's Leggings
+item.mystics:AetherLeggings.name=Aether's Leggings
+item.mystics:NeptuneLeggings.name=Neptune's Leggings
+
+item.mystics:ZeusBoots.name=Zeus' Boots
+item.mystics:HadesBoots.name=Hades' Boots
+item.mystics:MedusaBoots.name=Medusa's Boots
+item.mystics:AetherBoots.name=Aether's Boots
+item.mystics:NeptuneBoots.name=Neptune's Boots
+
 # Creative tabs
 itemGroup.Mystics=Mystics
 

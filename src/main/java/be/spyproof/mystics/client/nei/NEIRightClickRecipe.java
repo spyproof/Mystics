@@ -1,28 +1,23 @@
 package be.spyproof.mystics.client.nei;
 
-import be.spyproof.mystics.api.FluidCraftingRecipe;
-import be.spyproof.mystics.api.FluidCraftingRegistry;
 import be.spyproof.mystics.api.LiquidBlockCraftingRecipe;
-import be.spyproof.mystics.api.LiquidBlockCraftingRegisty;
+import be.spyproof.mystics.api.RightClickCraftingRegisty;
 import be.spyproof.mystics.reference.Textures;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Spyproof.
  */
-public class NEIFluidBlockRecipe extends TemplateRecipeHandler
+public class NEIRightClickRecipe extends TemplateRecipeHandler
 {
-    public class CachedFluidRecipe extends CachedRecipe
+    public class CachedRecipes extends CachedRecipe
     {
         PositionedStack output;
         PositionedStack input;
 
-        public CachedFluidRecipe(LiquidBlockCraftingRecipe recipe)
+        public CachedRecipes(LiquidBlockCraftingRecipe recipe)
         {
             this.input = new PositionedStack(recipe.getItem(), 35, 25);
             this.output = new PositionedStack(recipe.getResult(), 112, 25);
@@ -54,18 +49,18 @@ public class NEIFluidBlockRecipe extends TemplateRecipeHandler
     @Override
     public String getRecipeName()
     {
-        return "Getting the Fluids";
+        return "Right click in the world";
     }
 
     @Override
     public void loadUsageRecipes(ItemStack ingredient)
     {
-        if (LiquidBlockCraftingRegisty.isRequiredForCrafting(ingredient))
+        if (RightClickCraftingRegisty.isRequiredForCrafting(ingredient))
         {
-            for (LiquidBlockCraftingRecipe recipe : LiquidBlockCraftingRegisty.fluidRecipes)
+            for (LiquidBlockCraftingRecipe recipe : RightClickCraftingRegisty.recipes)
             {
                 if (recipe.usesItem(ingredient))
-                    this.arecipes.add(new CachedFluidRecipe(recipe));
+                    this.arecipes.add(new CachedRecipes(recipe));
             }
         }
     }
@@ -73,12 +68,12 @@ public class NEIFluidBlockRecipe extends TemplateRecipeHandler
     @Override
     public void loadCraftingRecipes(ItemStack result)
     {
-        for (LiquidBlockCraftingRecipe recipe: LiquidBlockCraftingRegisty.fluidRecipes)
+        for (LiquidBlockCraftingRecipe recipe: RightClickCraftingRegisty.recipes)
         {
             if (recipe != null && recipe.getResult() != null)
             {
                 if (recipe.hasResult(result))
-                    arecipes.add(new CachedFluidRecipe(recipe));
+                    arecipes.add(new CachedRecipes(recipe));
             }
         }
     }
@@ -86,13 +81,13 @@ public class NEIFluidBlockRecipe extends TemplateRecipeHandler
     @Override
     public void loadCraftingRecipes(String outputId, Object... results)
     {
-        if (outputId.equals(Textures.NeiOverlays.FLUID_CRAFTING) && getClass() == NEIFluidBlockRecipe.class)
+        if (outputId.equals(Textures.NeiOverlays.FLUID_CRAFTING) && getClass() == NEIRightClickRecipe.class)
         {
-            for (LiquidBlockCraftingRecipe recipe: LiquidBlockCraftingRegisty.fluidRecipes)
+            for (LiquidBlockCraftingRecipe recipe: RightClickCraftingRegisty.recipes)
             {
                 if (recipe != null && recipe.getResult() != null)
                 {
-                    arecipes.add(new CachedFluidRecipe(recipe));
+                    arecipes.add(new CachedRecipes(recipe));
                 }
             }
         }

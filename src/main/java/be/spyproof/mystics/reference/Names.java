@@ -14,6 +14,11 @@ public class Names
         public static final String AETHER_SWORD = "AetherSword";
         public static final String NEPTUNE_SWORD = "NeptuneSword";
 
+        public static final String ZEUS_HELMET = "ZeusHelmet";
+        public static final String ZEUS_CHESTPLATE = "ZeusChestplate";
+        public static final String ZEUS_LEGGINGS = "ZeusLeggings";
+        public static final String ZEUS_BOOTS = "ZeusBoots";
+
         public static final String BOTTLED_FLUID = "BottledFluid";
         public static final String[] BOTTLED_FLUID_SUBTYPES = {"Lightning", "Fire", "Acid", "Air", "Water"};
 

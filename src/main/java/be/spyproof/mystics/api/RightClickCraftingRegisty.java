@@ -1,6 +1,5 @@
 package be.spyproof.mystics.api;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 import java.util.LinkedList;
@@ -9,13 +8,13 @@ import java.util.List;
 /**
  * Created by Spyproof.
  */
-public class LiquidBlockCraftingRegisty
+public class RightClickCraftingRegisty
 {
-    public static List<LiquidBlockCraftingRecipe> fluidRecipes = new LinkedList<LiquidBlockCraftingRecipe>();
+    public static List<LiquidBlockCraftingRecipe> recipes = new LinkedList<LiquidBlockCraftingRecipe>();
 
-    public static void registerFluidRecipe(ItemStack result, ItemStack requiredItem)
+    public static void registerRecipe(ItemStack result, ItemStack requiredItem)
     {
-        fluidRecipes.add(new LiquidBlockCraftingRecipe(result, requiredItem));
+        recipes.add(new LiquidBlockCraftingRecipe(result, requiredItem));
     }
 
     public static boolean isRequiredForCrafting(ItemStack testItem)
@@ -24,7 +23,7 @@ public class LiquidBlockCraftingRegisty
     		return false;
 
 
-        for (LiquidBlockCraftingRecipe recipe : fluidRecipes)
+        for (LiquidBlockCraftingRecipe recipe : recipes)
             if (recipe.usesItem(testItem))
                 return true;
 
@@ -33,7 +32,7 @@ public class LiquidBlockCraftingRegisty
 
     public static ItemStack getResult(ItemStack testItem)
     {
-        for (LiquidBlockCraftingRecipe recipe : fluidRecipes)
+        for (LiquidBlockCraftingRecipe recipe : recipes)
         {
             if (recipe.usesItem(testItem))
             {

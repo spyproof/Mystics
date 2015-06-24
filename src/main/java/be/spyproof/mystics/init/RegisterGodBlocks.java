@@ -14,10 +14,6 @@ import net.minecraftforge.fluids.FluidRegistry;
  */
 public class RegisterGodBlocks
 {
-    public static final MythicOre LIGHTNING_BLOCK = new MythicOre(Names.Blocks.LIGHTNING_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 0));
-    public static final MythicOre FIRE_BLOCK = new MythicOre(Names.Blocks.FIRE_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 1));
-    public static final MythicOre WATER_BLOCK = new MythicOre(Names.Blocks.WATER_BLOCK, new ItemStack(RegisterGodItems.crystals, 1, 4), Material.sand);
-
     public static Fluid fluidLightning = new Fluid("fluidLightning");
     public static FluidLightning fluidBlockLightning;
 
@@ -80,8 +76,6 @@ public class RegisterGodBlocks
 
     private void setupBlocks()
     {
-        GameRegistry.registerBlock(LIGHTNING_BLOCK, Names.Blocks.LIGHTNING_BLOCK);
-        GameRegistry.registerBlock(FIRE_BLOCK, Names.Blocks.FIRE_BLOCK);
-        GameRegistry.registerBlock(WATER_BLOCK, Names.Blocks.WATER_BLOCK);
+
     }
 }

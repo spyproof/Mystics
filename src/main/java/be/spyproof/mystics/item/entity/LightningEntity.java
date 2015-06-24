@@ -15,6 +15,7 @@ public class LightningEntity extends EntityLightningBolt
 
     private int lightningState, boltLivingTime;
 
+    //TODO add creator
     public LightningEntity(World world, double x, double y, double z)
     {
         super(world, x, y, z);
