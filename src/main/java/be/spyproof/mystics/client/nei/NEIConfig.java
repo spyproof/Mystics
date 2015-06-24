@@ -15,6 +15,8 @@ public class NEIConfig implements IConfigureNEI
     {
         API.registerRecipeHandler(new NEIFluidRecipeHandler());
         API.registerUsageHandler(new NEIFluidRecipeHandler());
+        API.registerRecipeHandler(new NEIFluidBlockRecipe());
+        API.registerUsageHandler(new NEIFluidBlockRecipe());
     }
 
     @Override
