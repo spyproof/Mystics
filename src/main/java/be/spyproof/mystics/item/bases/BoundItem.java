@@ -43,7 +43,7 @@ public class BoundItem extends BaseItem
     @Override
     public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        return NBTHelper.getBoolean(itemStack, "isActive") || isOwner(itemStack, attacker);
+        return super.hitEntity(itemStack, target, attacker);
     }
 
     @Override
@@ -62,7 +62,13 @@ public class BoundItem extends BaseItem
             return true;
         }
 
-        return NBTHelper.isOwner(itemStack, player);
+        if (NBTHelper.isOwner(itemStack, player))
+        {
+            if (!NBTHelper.getOwnerName(itemStack).equals(player.getCommandSenderName()))
+                NBTHelper.setOwner(itemStack, player);
+            return true;
+        }else
+            return false;
     }
 
     @Override
@@ -70,10 +76,10 @@ public class BoundItem extends BaseItem
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
     {
         if (NBTHelper.getBoolean(itemStack, "isActive"))
-          list.add("Activated");
+          list.add("\u00A2Activated");
         else
-            list.add("Deactivated");
+            list.add("\u00A7cDeactivated");
 
-        list.add("Owner: " + NBTHelper.getOwnerName(itemStack));
+        list.add("\u00A7fOwner: " + NBTHelper.getOwnerName(itemStack));
     }
 }

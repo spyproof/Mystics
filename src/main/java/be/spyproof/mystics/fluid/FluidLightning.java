@@ -30,7 +30,7 @@ public class FluidLightning extends BaseFluid
         super.onEntityCollidedWithBlock(world, x, y, z, entity);
 
         if (entity instanceof EntityLivingBase) {
-            entity.attackEntityFrom(GodlyDamageSource.pure, 2);
+            entity.attackEntityFrom(GodlyDamageSource.electric, 2);
         }
     }
 

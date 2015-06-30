@@ -1,6 +1,7 @@
 package be.spyproof.mystics.item.entity;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -12,10 +13,9 @@ import java.util.List;
  */
 public class LightningEntity extends EntityLightningBolt
 {
-
     private int lightningState, boltLivingTime;
+    private EntityLivingBase creator;
 
-    //TODO add creator
     public LightningEntity(World world, double x, double y, double z)
     {
         super(world, x, y, z);
@@ -23,7 +23,12 @@ public class LightningEntity extends EntityLightningBolt
         this.lightningState = 2;
         this.boltVertex = this.rand.nextLong();
         this.boltLivingTime = this.rand.nextInt(3) + 1;
+    }
 
+    public LightningEntity(World world, double x, double y, double z, EntityLivingBase creator)
+    {
+        this(world, x, y, z);
+        this.creator = creator;
     }
 
     @Override
@@ -61,8 +66,9 @@ public class LightningEntity extends EntityLightningBolt
                 for (int l = 0; l < list.size(); ++l)
                 {
                     Entity entity = (Entity)list.get(l);
-                    if (!net.minecraftforge.event.ForgeEventFactory.onEntityStruckByLightning(entity, this))
-                        entity.onStruckByLightning(this);
+                    if (this.creator != null && this.creator.getUniqueID()!= entity.getUniqueID())
+                        if (!net.minecraftforge.event.ForgeEventFactory.onEntityStruckByLightning(entity, this))
+                            entity.onStruckByLightning(this);
                 }
             }
         }

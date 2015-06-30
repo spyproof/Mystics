@@ -19,6 +19,26 @@ public class Names
         public static final String ZEUS_LEGGINGS = "ZeusLeggings";
         public static final String ZEUS_BOOTS = "ZeusBoots";
 
+        public static final String HADES_HELMET = "HadesHelmet";
+        public static final String HADES_CHESTPLATE = "HadesChestplate";
+        public static final String HADES_LEGGINGS = "HadesLeggings";
+        public static final String HADES_BOOTS = "HadesBoots";
+
+        public static final String MEDUSA_HELMET = "MedusaHelmet";
+        public static final String MEDUSA_CHESTPLATE = "MedusaChestplate";
+        public static final String MEDUSA_LEGGINGS = "MedusaLeggings";
+        public static final String MEDUSA_BOOTS = "MedusaBoots";
+
+        public static final String AETHER_HELMET = "AetherHelmet";
+        public static final String AETHER_CHESTPLATE = "AetherChestplate";
+        public static final String AETHER_LEGGINGS = "AetherLeggings";
+        public static final String AETHER_BOOTS = "AetherBoots";
+        
+        public static final String NEPTUNE_HELMET = "NeptuneHelmet";
+        public static final String NEPTUNE_CHESTPLATE = "NeptuneChestplate";
+        public static final String NEPTUNE_LEGGINGS = "NeptuneLeggings";
+        public static final String NEPTUNE_BOOTS = "NeptuneBoots";
+
         public static final String BOTTLED_FLUID = "BottledFluid";
         public static final String[] BOTTLED_FLUID_SUBTYPES = {"Lightning", "Fire", "Acid", "Air", "Water"};
 

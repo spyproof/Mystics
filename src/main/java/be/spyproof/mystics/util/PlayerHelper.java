@@ -16,13 +16,13 @@ import java.util.List;
 public class PlayerHelper
 {
     private static int range = 64;
-    public static MovingObjectPosition getLookPos(EntityPlayer player)
+    public static MovingObjectPosition getLookPos(EntityLivingBase player)
     {
         Vec3 position = Vec3.createVectorHelper(player.posX, player.posY + player.getEyeHeight(), player.posZ);
         Vec3 lookVec = player.getLookVec();
         Vec3 target = position.addVector(lookVec.xCoord * range, lookVec.yCoord * range, lookVec.zCoord * range);
 
-        return player.getEntityWorld().func_147447_a(position, target, false, false, true);
+        return player.worldObj.func_147447_a(position, target, false, false, true);
     }
 
     /**

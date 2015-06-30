@@ -73,7 +73,7 @@ public class ItemHadesSword extends BoundSword
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
     {
         super.addInformation(itemStack, player, list, b);
-        list.add("Lava & Fire immune");
+
     }
 
     private void setOnFire(World world, MovingObjectPosition mop, int radius)

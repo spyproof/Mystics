@@ -6,6 +6,9 @@ import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.init.RegisterGodEntities;
 import be.spyproof.mystics.init.RegisterGodItems;
+import be.spyproof.mystics.listeners.ArmorListener;
+import be.spyproof.mystics.listeners.PotionListener;
+import be.spyproof.mystics.potions.MysticPotions;
 import be.spyproof.mystics.proxy.CommonProxy;
 import be.spyproof.mystics.reference.Reference;
 import be.spyproof.mystics.util.BlockHelper;
@@ -59,10 +62,14 @@ public class Mystics
 
         //Register listeners
         MinecraftForge.EVENT_BUS.register(new FluidCraftingRegistry());
+        MinecraftForge.EVENT_BUS.register(new ArmorListener());
+        MinecraftForge.EVENT_BUS.register(new PotionListener());
 
         //Register GUI handler
         //NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
+        //Init potions
+        MysticPotions.init();
 
         //Add recipies
         new Recipes();
@@ -73,6 +80,9 @@ public class Mystics
     {
         new BlockHelper();
         proxy.registerRendering();
+
+        //Load potions
+        MysticPotions.load();
     }
 
     @Mod.EventHandler

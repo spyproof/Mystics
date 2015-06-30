@@ -1,12 +1,17 @@
 package be.spyproof.mystics.item.bases;
 
 import be.spyproof.mystics.creativeTab.CreativeTabGodSwords;
+import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.reference.Textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import java.util.List;
 
 /**
  * Created by Spyproof.
@@ -35,6 +40,23 @@ public class BaseItem extends Item
     public String getItemStackDisplayName(ItemStack itemStack)
     {
         return super.getItemStackDisplayName(itemStack) + "\u00A7r";
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    {
+        super.addInformation(itemStack, player, list, b);
+
+    }
+
+    protected void addHiddenTooltip(List list, String tooltip)
+    {
+        String shiftMessage = "\u00A7fPress <Shift>";
+        if (GuiScreen.isShiftKeyDown())
+            list.add(tooltip);
+        else if (!list.contains(shiftMessage))
+            list.add(shiftMessage);
     }
 
     /**

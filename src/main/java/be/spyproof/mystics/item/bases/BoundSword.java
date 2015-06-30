@@ -57,8 +57,8 @@ public class BoundSword extends BoundTool
         if (target instanceof EntityPlayer)
             if (((EntityPlayer) target).capabilities.isCreativeMode)
                 return true;
-
-        return !NBTHelper.getBoolean(itemStack, "isActive") || !NBTHelper.isOwner(itemStack, player);
+        return false;
+        //return !NBTHelper.getBoolean(itemStack, "isActive") || !NBTHelper.isOwner(itemStack, player);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class BoundSword extends BoundTool
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
     {
-        return !NBTHelper.getBoolean(stack, "isActive");
+        return super.onLeftClickEntity(stack, player, entity);
     }
 
     @Override

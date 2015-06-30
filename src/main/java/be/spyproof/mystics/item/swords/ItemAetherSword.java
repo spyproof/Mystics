@@ -2,6 +2,7 @@ package be.spyproof.mystics.item.swords;
 
 import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
+import be.spyproof.mystics.util.NBTHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -32,15 +33,6 @@ public class ItemAetherSword extends BoundSword
         } catch (IllegalArgumentException e) {
             return itemStack;
         }
-        /*
-        if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
-        {
-            MovingObjectPosition mop = PlayerHelper.getLookPos(player);
-            //TODO if you cant hurt players, home into enities
-
-            setOnFire(world, mop, 1);
-        }*/
-
 
         return itemStack;
     }
@@ -51,7 +43,8 @@ public class ItemAetherSword extends BoundSword
         if (super.hitEntity(itemStack, target, player))
             return true;
 
-        target.motionY = target.motionY + 1;
+        if (NBTHelper.getBoolean(itemStack, "isActive"))
+            target.motionY = target.motionY + 1;
 
         return true;
     }

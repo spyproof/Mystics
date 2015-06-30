@@ -1,11 +1,15 @@
 package be.spyproof.mystics.fluid;
 
+import be.spyproof.mystics.handler.GodlyDamageSource;
+import be.spyproof.mystics.item.entity.EntityFluidCrafting;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.PlayerHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 

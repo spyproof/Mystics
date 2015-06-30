@@ -13,6 +13,6 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRendering()
     {
-        RenderingRegistry.registerEntityRenderingHandler(EntityThrowable.class, new RenderSnowball(RegisterGodItems.bottledFluid));
+        //RenderingRegistry.registerEntityRenderingHandler(EntityThrowable.class, new RenderSnowball(RegisterGodItems.bottledFluid));
     }
 }
