@@ -1,4 +1,4 @@
-package be.spyproof.mystics.item.entity;
+package be.spyproof.mystics.entity;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;

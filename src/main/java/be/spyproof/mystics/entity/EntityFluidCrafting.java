@@ -1,4 +1,4 @@
-package be.spyproof.mystics.item.entity;
+package be.spyproof.mystics.entity;
 
 import be.spyproof.mystics.api.FluidCraftingRegistry;
 import net.minecraft.entity.item.EntityItem;

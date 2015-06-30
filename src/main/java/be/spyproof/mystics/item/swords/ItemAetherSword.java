@@ -8,6 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 /**
  * Created by Spyproof.
  */
@@ -17,6 +19,16 @@ public class ItemAetherSword extends BoundSword
     {
         super();
         this.setUnlocalizedName(Names.Items.AETHER_SWORD);
+        this.setMaxDamage(10);
+    }
+
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    {
+        super.addInformation(itemStack, player, list, b);
+        addHiddenTooltip(list, "\u00A7fLeft click ability:");
+        addHiddenTooltip(list, Names.Colors.AETHER + "Send the target flying");
+        //addHiddenTooltip(list, Names.Colors.AETHER + "and can fly");
     }
 
     @Override
@@ -42,6 +54,11 @@ public class ItemAetherSword extends BoundSword
     {
         if (super.hitEntity(itemStack, target, player))
             return true;
+
+        if (itemStack.getItemDamage() == getMaxDamage())
+            return true;
+
+        itemStack.setItemDamage(itemStack.getItemDamage()+1);
 
         if (NBTHelper.getBoolean(itemStack, "isActive"))
             target.motionY = target.motionY + 1;

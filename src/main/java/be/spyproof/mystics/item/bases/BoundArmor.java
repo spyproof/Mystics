@@ -70,38 +70,6 @@ public class BoundArmor extends ItemArmor
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
-    {
-        /*int slot = ((BoundArmor) itemStack.getItem()).armorType;
-        switch (slot)
-        {
-            case 0:
-                slot = 3;
-                break;
-            case 1:
-                slot = 2;
-                break;
-            case 2:
-                slot = 1;
-                break;
-            case 3:
-                slot = 0;
-                break;
-        }
-        if (player.getCurrentArmor(slot) == null)
-        {
-            for (int i = 0; i < player.inventory.getSizeInventory(); i++)
-                if (player.inventory.getStackInSlot(i) != null && player.inventory.getStackInSlot(i).equals(itemStack))
-                    player.inventory.setInventorySlotContents(i, null);
-
-            player.setCurrentItemOrArmor(slot, itemStack);
-            //return itemStack;
-        }
-        return itemStack;*/
-        return super.onItemRightClick(itemStack, world, player);
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
     {

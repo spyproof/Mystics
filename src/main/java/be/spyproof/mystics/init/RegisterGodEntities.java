@@ -1,8 +1,8 @@
 package be.spyproof.mystics.init;
 
 import be.spyproof.mystics.Mystics;
-import be.spyproof.mystics.item.entity.ItemEntityFireproof;
-import be.spyproof.mystics.item.entity.ItemEntityThrowable;
+import be.spyproof.mystics.entity.ItemEntityFireproof;
+import be.spyproof.mystics.entity.ItemEntityThrowable;
 import be.spyproof.mystics.reference.IDs;
 import be.spyproof.mystics.reference.Names;
 import cpw.mods.fml.common.registry.EntityRegistry;

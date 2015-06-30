@@ -1,6 +1,6 @@
 package be.spyproof.mystics.api;
 
-import be.spyproof.mystics.item.entity.EntityFluidCrafting;
+import be.spyproof.mystics.entity.EntityFluidCrafting;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;

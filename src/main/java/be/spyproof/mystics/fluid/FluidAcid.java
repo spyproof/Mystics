@@ -1,7 +1,7 @@
 package be.spyproof.mystics.fluid;
 
 import be.spyproof.mystics.handler.GodlyDamageSource;
-import be.spyproof.mystics.item.entity.EntityFluidCrafting;
+import be.spyproof.mystics.entity.EntityFluidCrafting;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.BlockHelper;
 import net.minecraft.block.Block;

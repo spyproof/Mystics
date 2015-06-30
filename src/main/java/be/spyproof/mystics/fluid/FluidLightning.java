@@ -1,7 +1,7 @@
 package be.spyproof.mystics.fluid;
 
 import be.spyproof.mystics.handler.GodlyDamageSource;
-import be.spyproof.mystics.item.entity.LightningEntity;
+import be.spyproof.mystics.entity.LightningEntity;
 import be.spyproof.mystics.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

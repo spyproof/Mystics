@@ -1,7 +1,7 @@
 package be.spyproof.mystics.item.swords;
 
 import be.spyproof.mystics.item.bases.BoundSword;
-import be.spyproof.mystics.item.entity.ItemEntityFireproof;
+import be.spyproof.mystics.entity.ItemEntityFireproof;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import be.spyproof.mystics.util.PlayerHelper;
@@ -23,6 +23,7 @@ public class ItemHadesSword extends BoundSword
     {
         super();
         this.setUnlocalizedName(Names.Items.HADES_SWORD);
+        this.setMaxDamage(10);
     }
 
     @Override
@@ -39,6 +40,11 @@ public class ItemHadesSword extends BoundSword
         } catch (IllegalArgumentException e) {
             return itemStack;
         }
+
+        if (itemStack.getItemDamage() == getMaxDamage())
+            return itemStack;
+
+        itemStack.setItemDamage(itemStack.getItemDamage()+1);
 
         if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
         {
@@ -73,7 +79,8 @@ public class ItemHadesSword extends BoundSword
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
     {
         super.addInformation(itemStack, player, list, b);
-
+        addHiddenTooltip(list, "\u00A7fRight click ability:");
+        addHiddenTooltip(list, Names.Colors.HADES + "Start a 3x3 fire");
     }
 
     private void setOnFire(World world, MovingObjectPosition mop, int radius)

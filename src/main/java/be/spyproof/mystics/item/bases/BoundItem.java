@@ -76,7 +76,7 @@ public class BoundItem extends BaseItem
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
     {
         if (NBTHelper.getBoolean(itemStack, "isActive"))
-          list.add("\u00A2Activated");
+            list.add("\u00A7aActivated");
         else
             list.add("\u00A7cDeactivated");
 

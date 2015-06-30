@@ -70,7 +70,6 @@ public class BaseItem extends Item
         this.itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 
-
     protected String getUnwrappedUnlocalizedName(String name)
     {
         if (name.contains(":"))

@@ -16,6 +16,8 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 /**
  * Created by Spyproof.
  */
@@ -27,6 +29,13 @@ public class BoundSword extends BoundTool
     {
         this.maxStackSize = 1;
         this.damage = 4.0F + super.getToolMaterial().getDamageVsEntity();
+    }
+
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    {
+        super.addInformation(itemStack, player, list, b);
+        list.add("\u00A7fCharges: " + (itemStack.getMaxDamage() - itemStack.getItemDamage()) + "/" + itemStack.getMaxDamage());
     }
 
     public float getDamage()
@@ -58,7 +67,6 @@ public class BoundSword extends BoundTool
             if (((EntityPlayer) target).capabilities.isCreativeMode)
                 return true;
         return false;
-        //return !NBTHelper.getBoolean(itemStack, "isActive") || !NBTHelper.isOwner(itemStack, player);
     }
 
     @Override

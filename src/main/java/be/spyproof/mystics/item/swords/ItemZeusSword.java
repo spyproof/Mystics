@@ -1,20 +1,17 @@
 package be.spyproof.mystics.item.swords;
 
-import be.spyproof.mystics.init.RegisterGodBlocks;
-import be.spyproof.mystics.init.RegisterGodItems;
 import be.spyproof.mystics.item.bases.BoundSword;
-import be.spyproof.mystics.item.entity.LightningEntity;
+import be.spyproof.mystics.entity.LightningEntity;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import be.spyproof.mystics.util.PlayerHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -26,6 +23,15 @@ public class ItemZeusSword extends BoundSword
     {
         super();
         this.setUnlocalizedName(Names.Items.ZEUS_SWORD);
+        this.setMaxDamage(5);
+    }
+
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    {
+        super.addInformation(itemStack, player, list, b);
+        addHiddenTooltip(list, "\u00A7fRight click ability:");
+        addHiddenTooltip(list, Names.Colors.ZEUS + "Summon lightning");
     }
 
     @Override
@@ -47,6 +53,11 @@ public class ItemZeusSword extends BoundSword
         {
             MovingObjectPosition mop = PlayerHelper.getLookPos(player);
             //TODO if you cant hurt players, home into enities
+
+            if (itemStack.getItemDamage() == getMaxDamage())
+                return itemStack;
+
+            itemStack.setItemDamage(itemStack.getItemDamage()+1);
 
             if (!world.isRemote)
                 world.addWeatherEffect(new LightningEntity(world, mop.blockX, mop.blockY + 1, mop.blockZ, player));

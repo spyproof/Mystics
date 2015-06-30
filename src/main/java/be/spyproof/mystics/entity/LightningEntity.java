@@ -1,4 +1,4 @@
-package be.spyproof.mystics.item.entity;
+package be.spyproof.mystics.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

@@ -19,6 +19,16 @@ public class Recipes
         vanillaCrafting();
         fluidCrafting();
         rightClickRecipies();
+        vanillaRepairs();
+    }
+
+    private void vanillaRepairs()
+    {
+        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.crystals, 0));
+        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.crystals, 1));
+        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.medusaBoots), new ItemStack(RegisterGodItems.medusaBoots), new ItemStack(RegisterGodItems.crystals, 2));
+        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.crystals, 3));
+        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.crystals, 4));
     }
 
     private void vanillaCrafting()
