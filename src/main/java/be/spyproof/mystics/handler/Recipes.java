@@ -1,7 +1,8 @@
 package be.spyproof.mystics.handler;
 
-import be.spyproof.mystics.api.FluidCraftingRegistry;
-import be.spyproof.mystics.api.RightClickCraftingRegisty;
+import be.spyproof.mystics.crafting.FluidCraftingRegistry;
+import be.spyproof.mystics.crafting.RightClickCraftingRegisty;
+import be.spyproof.mystics.crafting.ShapelessRepairRecipe;
 import be.spyproof.mystics.init.RegisterGodBlocks;
 import be.spyproof.mystics.init.RegisterGodItems;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -24,11 +25,11 @@ public class Recipes
 
     private void vanillaRepairs()
     {
-        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.crystals, 0));
-        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.crystals, 1));
-        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.medusaBoots), new ItemStack(RegisterGodItems.medusaBoots), new ItemStack(RegisterGodItems.crystals, 2));
-        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.crystals, 3));
-        GameRegistry.addShapelessRecipe(new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.crystals, 4));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.crystals, 1, 0)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.crystals, 1, 1)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.medusaSword), new ItemStack(RegisterGodItems.medusaSword), new ItemStack(RegisterGodItems.crystals, 1, 2)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.crystals, 1, 3)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.crystals, 1, 4)));
     }
 
     private void vanillaCrafting()

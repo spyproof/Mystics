@@ -1,4 +1,4 @@
-package be.spyproof.mystics.api;
+package be.spyproof.mystics.crafting;
 
 import be.spyproof.mystics.entity.EntityFluidCrafting;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

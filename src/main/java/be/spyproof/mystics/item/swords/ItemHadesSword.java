@@ -48,6 +48,7 @@ public class ItemHadesSword extends BoundSword
 
         if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
         {
+            itemStack.setItemDamage(itemStack.getItemDamage()+1);
             MovingObjectPosition mop = PlayerHelper.getLookPos(player);
             //TODO if you cant hurt players, home into enities
 

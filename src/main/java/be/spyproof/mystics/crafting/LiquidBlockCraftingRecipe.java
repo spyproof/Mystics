@@ -1,4 +1,4 @@
-package be.spyproof.mystics.api;
+package be.spyproof.mystics.crafting;
 
 import net.minecraft.item.ItemStack;
 

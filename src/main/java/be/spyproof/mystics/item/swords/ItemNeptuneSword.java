@@ -5,6 +5,7 @@ import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
@@ -49,10 +50,14 @@ public class ItemNeptuneSword extends BoundSword
         if (itemStack.getItemDamage() == getMaxDamage())
             return itemStack;
 
-        itemStack.setItemDamage(itemStack.getItemDamage()+1);
-
         if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
-            player.addPotionEffect(new PotionEffect(10, 100, 2));
+        {
+            if (player.isPotionActive(Potion.regeneration))
+                return itemStack;
+
+            player.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 100, 2));
+            itemStack.setItemDamage(itemStack.getItemDamage()+1);
+        }
 
 
         return itemStack;

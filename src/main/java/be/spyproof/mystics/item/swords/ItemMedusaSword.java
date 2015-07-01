@@ -54,10 +54,13 @@ public class ItemMedusaSword extends BoundSword
         if (itemStack.getItemDamage() == getMaxDamage())
             return true;
 
-        itemStack.setItemDamage(itemStack.getItemDamage()+1);
-
         if (NBTHelper.getBoolean(itemStack, "isActive"))
+        {
+            if (target.isPotionActive(MysticPotions.freezeResist) || target.isPotionActive(MysticPotions.freeze))
+                return false;
             MysticPotions.freeze.onApply(target, new PotionEffect(MysticPotions.freeze.getId(), 100, 4));
+            itemStack.setItemDamage(itemStack.getItemDamage()+1);
+        }
 
         return true;
     }

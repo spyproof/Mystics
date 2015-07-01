@@ -1,5 +1,6 @@
 package be.spyproof.mystics.potions;
 
+import be.spyproof.mystics.handler.ConfigHandler;
 import net.minecraft.potion.Potion;
 
 import java.lang.reflect.Field;
@@ -36,7 +37,7 @@ public class MysticPotions
                 }
             } catch (Exception e)
             {
-                System.err.println("Severe error, please report this to the mod author:");
+                System.err.println("Severe error, please report this to the mod author");
                 System.err.println(e);
             }
         }
@@ -44,14 +45,14 @@ public class MysticPotions
 
     public static void load()
     {
-        //TODO config option & propper name
-        freeze = (new PotionFreeze(32, true, 0)).setIconIndex(1, 0).setPotionName("Freeze");
-        freezeResist = (new PotionSimple(33, false, 0)).setIconIndex(1, 0).setPotionName("Freeze Resist");
-        fly = (new PotionFly(34, false, 0)).setIconIndex(2, 1).setPotionName("Fly");
+        //TODO Propper name
+        freeze = (new PotionFreeze(ConfigHandler.potionIDs[0], true, 0)).setIconIndex(1, 0).setPotionName("Freeze");
+        freezeResist = (new PotionSimple(ConfigHandler.potionIDs[1], false, 0)).setIconIndex(1, 0).setPotionName("Freeze Resist");
+        fly = (new PotionFly(ConfigHandler.potionIDs[2], false, 0)).setIconIndex(2, 1).setPotionName("Fly");
     }
 
     public static PotionBase[] getAllPotions()
     {
-        return new PotionBase[]{freeze, freezeResist};
+        return new PotionBase[]{freeze, freezeResist, fly};
     }
 }

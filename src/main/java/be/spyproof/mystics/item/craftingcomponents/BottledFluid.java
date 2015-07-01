@@ -1,6 +1,6 @@
 package be.spyproof.mystics.item.craftingcomponents;
 
-import be.spyproof.mystics.api.RightClickCraftingRegisty;
+import be.spyproof.mystics.crafting.RightClickCraftingRegisty;
 import be.spyproof.mystics.item.bases.BaseDamagedItem;
 import be.spyproof.mystics.reference.Names;
 import net.minecraft.block.Block;

@@ -166,7 +166,7 @@ public class BoundSword extends BoundTool
      * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
      */
     @Override
-    @SuppressWarnings("Deprecation")
+    @SuppressWarnings("All")
     public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();

@@ -1,6 +1,7 @@
 package be.spyproof.mystics.potions;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
 /**
@@ -12,7 +13,7 @@ public interface IPotion
 
     PotionBase setPotionName(String name);
 
-    boolean isInstant();
+    int getId();
 
     void onApply(EntityLivingBase entityLiving, PotionEffect potionEffect);
 

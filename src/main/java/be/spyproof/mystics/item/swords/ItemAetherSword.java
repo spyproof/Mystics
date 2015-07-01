@@ -28,7 +28,6 @@ public class ItemAetherSword extends BoundSword
         super.addInformation(itemStack, player, list, b);
         addHiddenTooltip(list, "\u00A7fLeft click ability:");
         addHiddenTooltip(list, Names.Colors.AETHER + "Send the target flying");
-        //addHiddenTooltip(list, Names.Colors.AETHER + "and can fly");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package be.spyproof.mystics.entity;
 
-import be.spyproof.mystics.api.FluidCraftingRegistry;
+import be.spyproof.mystics.crafting.FluidCraftingRegistry;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

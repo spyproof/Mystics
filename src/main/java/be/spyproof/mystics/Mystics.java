@@ -1,6 +1,6 @@
 package be.spyproof.mystics;
 
-import be.spyproof.mystics.api.FluidCraftingRegistry;
+import be.spyproof.mystics.crafting.FluidCraftingRegistry;
 import be.spyproof.mystics.handler.ConfigHandler;
 import be.spyproof.mystics.handler.Recipes;
 import be.spyproof.mystics.init.RegisterGodBlocks;

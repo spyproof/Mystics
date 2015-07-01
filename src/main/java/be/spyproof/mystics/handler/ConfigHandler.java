@@ -13,12 +13,11 @@ import java.io.File;
 public class ConfigHandler
 {
     public static Configuration config;
-    public static boolean useRecepies = false;
+    public static int[] potionIDs = new int[3];
 
 
     /**
      * enable/disable binding
-     * enable/disable binding upon crafting
      * enable/disable every item
      * enable/disable every item ability
      * enable/disable targeting players
@@ -45,19 +44,11 @@ public class ConfigHandler
 
     public void loadConfig()
     {
-        useRecepies = config.get(Configuration.CATEGORY_GENERAL, "Use recipies", true, "Enable or disable crafting recipies").getBoolean();
+        potionIDs[0] = config.get("Potions", "Freeze ID", 32).getInt();
+        potionIDs[1] = config.get("Potions", "FreezeResist ID", 33).getInt();
+        potionIDs[2] = config.get("Potions", "Fly ID", 34).getInt();
 
         if (config.hasChanged())
             config.save();
-    }
-
-    private void loadGlobalSettings()
-    {
-
-    }
-
-    private void loadSwordSettings()
-    {
-
     }
 }

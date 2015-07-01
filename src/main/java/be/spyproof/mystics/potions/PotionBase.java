@@ -31,9 +31,4 @@ public abstract class PotionBase extends Potion implements IPotion
         super.setPotionName(potionName);
         return this;
     }
-
-    public boolean isInstant()
-    {
-        return super.isInstant();
-    }
 }

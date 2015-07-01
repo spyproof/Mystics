@@ -1,7 +1,7 @@
 package be.spyproof.mystics.client.nei;
 
-import be.spyproof.mystics.api.FluidCraftingRecipe;
-import be.spyproof.mystics.api.FluidCraftingRegistry;
+import be.spyproof.mystics.crafting.FluidCraftingRecipe;
+import be.spyproof.mystics.crafting.FluidCraftingRegistry;
 import be.spyproof.mystics.reference.Textures;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
