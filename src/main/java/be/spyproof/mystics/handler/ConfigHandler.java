@@ -15,7 +15,6 @@ public class ConfigHandler
     public static Configuration config;
     public static int[] potionIDs = new int[3];
 
-
     /**
      * enable/disable binding
      * enable/disable every item

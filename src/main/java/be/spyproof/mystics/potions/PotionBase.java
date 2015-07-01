@@ -1,7 +1,5 @@
 package be.spyproof.mystics.potions;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.potion.Potion;
 
 /**
@@ -12,7 +10,6 @@ public abstract class PotionBase extends Potion implements IPotion
     /**
      * TODO make this decent
      * Potion icon
-     * Render the cooldown above target
      * Once i know how rendering works, render player as stone
      */
     public PotionBase(int id, boolean isBadEffect, int liquidColor)

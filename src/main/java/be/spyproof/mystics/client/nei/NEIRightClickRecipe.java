@@ -43,7 +43,7 @@ public class NEIRightClickRecipe extends TemplateRecipeHandler
     @Override
     public String getOverlayIdentifier()
     {
-        return Textures.NeiOverlays.LIQUID_CRAFTING;
+        return Textures.NeiOverlayNames.LIQUID_CRAFTING;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class NEIRightClickRecipe extends TemplateRecipeHandler
     @Override
     public void loadCraftingRecipes(String outputId, Object... results)
     {
-        if (outputId.equals(Textures.NeiOverlays.FLUID_CRAFTING) && getClass() == NEIRightClickRecipe.class)
+        if (outputId.equals(Textures.NeiOverlayNames.FLUID_CRAFTING) && getClass() == NEIRightClickRecipe.class)
         {
             for (LiquidBlockCraftingRecipe recipe: RightClickCraftingRegisty.recipes)
             {

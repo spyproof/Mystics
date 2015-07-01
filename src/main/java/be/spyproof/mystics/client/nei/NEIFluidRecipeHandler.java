@@ -49,7 +49,7 @@ public class NEIFluidRecipeHandler extends TemplateRecipeHandler
     @Override
     public String getOverlayIdentifier()
     {
-        return Textures.NeiOverlays.FLUID_CRAFTING;
+        return Textures.NeiOverlayNames.FLUID_CRAFTING;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class NEIFluidRecipeHandler extends TemplateRecipeHandler
     @Override
     public void loadCraftingRecipes(String outputId, Object... results)
     {
-        if (outputId.equals(Textures.NeiOverlays.FLUID_CRAFTING) && getClass() == NEIFluidRecipeHandler.class)
+        if (outputId.equals(Textures.NeiOverlayNames.FLUID_CRAFTING) && getClass() == NEIFluidRecipeHandler.class)
         {
             for (FluidCraftingRecipe recipe : FluidCraftingRegistry.fluidRecipes)
             {

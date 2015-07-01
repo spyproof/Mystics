@@ -3,8 +3,8 @@ package be.spyproof.mystics;
 import be.spyproof.mystics.crafting.FluidCraftingRegistry;
 import be.spyproof.mystics.handler.ConfigHandler;
 import be.spyproof.mystics.handler.Recipes;
+import be.spyproof.mystics.init.EntityRegister;
 import be.spyproof.mystics.init.RegisterGodBlocks;
-import be.spyproof.mystics.init.RegisterGodEntities;
 import be.spyproof.mystics.init.RegisterGodItems;
 import be.spyproof.mystics.listeners.ArmorListener;
 import be.spyproof.mystics.listeners.PotionListener;
@@ -18,6 +18,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
@@ -40,7 +41,6 @@ public class Mystics
 {
     @Mod.Instance(Reference.MOD_ID)
     public static Mystics instance;
-    public static FluidCraftingRegistry fluidCraftingRegistry = new FluidCraftingRegistry();
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
@@ -58,7 +58,7 @@ public class Mystics
         new RegisterGodItems();
 
         //Register entities
-        new RegisterGodEntities();
+        EntityRegister.mainRegistry();
 
         //Register listeners
         MinecraftForge.EVENT_BUS.register(new FluidCraftingRegistry());
@@ -87,6 +87,11 @@ public class Mystics
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
+    {
+    }
+
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent event)
     {
     }
 }

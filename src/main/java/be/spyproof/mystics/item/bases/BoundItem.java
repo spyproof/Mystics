@@ -76,11 +76,6 @@ public class BoundItem extends BaseItem
     protected void addTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
         super.addTooltip(itemStack, player, map, b);
-        /*if (NBTHelper.getBoolean(itemStack, "isActive"))
-            map.put("\u00A7aActivated", 1);
-        else
-            map.put("\u00A7cDeactivated", 1);*/
-
         map.put("\u00A7fOwner: " + NBTHelper.getOwnerName(itemStack), 2);
     }
 

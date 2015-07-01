@@ -2,6 +2,7 @@ package be.spyproof.mystics.potions;
 
 import be.spyproof.mystics.handler.ConfigHandler;
 import net.minecraft.potion.Potion;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -45,14 +46,13 @@ public class MysticPotions
 
     public static void load()
     {
-        //TODO Propper name
         freeze = (new PotionFreeze(ConfigHandler.potionIDs[0], true, 0)).setIconIndex(1, 0).setPotionName("Freeze");
         freezeResist = (new PotionSimple(ConfigHandler.potionIDs[1], false, 0)).setIconIndex(1, 0).setPotionName("Freeze Resist");
         fly = (new PotionFly(ConfigHandler.potionIDs[2], false, 0)).setIconIndex(2, 1).setPotionName("Fly");
     }
 
-    public static PotionBase[] getAllPotions()
+    public void render(RenderPlayerEvent event)
     {
-        return new PotionBase[]{freeze, freezeResist, fly};
+
     }
 }

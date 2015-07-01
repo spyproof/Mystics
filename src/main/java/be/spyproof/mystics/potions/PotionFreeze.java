@@ -1,12 +1,7 @@
 package be.spyproof.mystics.potions;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 /**
  * Created by Spyproof.
@@ -32,12 +27,6 @@ public class PotionFreeze extends PotionBase
         {
             entityLiving.removePotionEffect(MysticPotions.freeze.getId());
             return;
-        }
-
-        if (entityLiving instanceof EntityPlayer)
-        {
-            entityLiving.setRotationYawHead(0);
-            ((EntityPlayer) entityLiving).cameraYaw = 0;
         }
 
         entityLiving.motionX = 0;
