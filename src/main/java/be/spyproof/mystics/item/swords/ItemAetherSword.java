@@ -3,12 +3,13 @@ package be.spyproof.mystics.item.swords;
 import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
+import be.spyproof.mystics.util.PlayerHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by Spyproof.
@@ -23,11 +24,11 @@ public class ItemAetherSword extends BoundSword
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    public void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
-        super.addInformation(itemStack, player, list, b);
-        addHiddenTooltip(list, "\u00A7fLeft click ability:");
-        addHiddenTooltip(list, Names.Colors.AETHER + "Send the target flying");
+        super.addShiftTooltip(itemStack, player, map, b);
+        map.put("\u00A7fLeft click ability:", 1);
+        map.put(Names.Colors.AETHER + "Send the target flying", 3);
     }
 
     @Override
@@ -42,7 +43,8 @@ public class ItemAetherSword extends BoundSword
         try {
             super.onItemRightClick(itemStack, world, player);
         } catch (IllegalArgumentException e) {
-            return itemStack;
+            if (!world.isRemote)
+                PlayerHelper.messagePlayer(player, e.getMessage());
         }
 
         return itemStack;
@@ -60,7 +62,8 @@ public class ItemAetherSword extends BoundSword
         itemStack.setItemDamage(itemStack.getItemDamage()+1);
 
         if (NBTHelper.getBoolean(itemStack, "isActive"))
-            target.motionY = target.motionY + 1;
+            if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
+                target.motionY = target.motionY + 1;
 
         return true;
     }

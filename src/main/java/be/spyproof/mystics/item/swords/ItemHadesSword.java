@@ -1,7 +1,7 @@
 package be.spyproof.mystics.item.swords;
 
-import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.entity.ItemEntityFireproof;
+import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import be.spyproof.mystics.util.PlayerHelper;
@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by Spyproof.
@@ -38,7 +38,8 @@ public class ItemHadesSword extends BoundSword
         try {
             super.onItemRightClick(itemStack, world, player);
         } catch (IllegalArgumentException e) {
-            return itemStack;
+            if (!world.isRemote)
+                PlayerHelper.messagePlayer(player, e.getMessage());
         }
 
         if (itemStack.getItemDamage() == getMaxDamage())
@@ -48,7 +49,8 @@ public class ItemHadesSword extends BoundSword
 
         if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
         {
-            itemStack.setItemDamage(itemStack.getItemDamage()+1);
+            if (!player.capabilities.isCreativeMode)
+                itemStack.setItemDamage(itemStack.getItemDamage()+1);
             MovingObjectPosition mop = PlayerHelper.getLookPos(player);
             //TODO if you cant hurt players, home into enities
 
@@ -77,11 +79,11 @@ public class ItemHadesSword extends BoundSword
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    public void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
-        super.addInformation(itemStack, player, list, b);
-        addHiddenTooltip(list, "\u00A7fRight click ability:");
-        addHiddenTooltip(list, Names.Colors.HADES + "Start a 3x3 fire");
+        super.addShiftTooltip(itemStack, player, map, b);
+        map.put("\u00A7fRight click ability:", 1);
+        map.put(Names.Colors.HADES + "Start a 3x3 fire", 3);
     }
 
     private void setOnFire(World world, MovingObjectPosition mop, int radius)

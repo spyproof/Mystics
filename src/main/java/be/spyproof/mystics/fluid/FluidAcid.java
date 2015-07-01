@@ -1,7 +1,7 @@
 package be.spyproof.mystics.fluid;
 
-import be.spyproof.mystics.handler.GodlyDamageSource;
 import be.spyproof.mystics.entity.EntityFluidCrafting;
+import be.spyproof.mystics.handler.MysticDamageSource;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.BlockHelper;
 import net.minecraft.block.Block;
@@ -34,7 +34,7 @@ public class FluidAcid extends BaseFluid
 
         if (entity instanceof EntityLivingBase)
         {
-            entity.attackEntityFrom(GodlyDamageSource.acid, 3);
+            entity.attackEntityFrom(MysticDamageSource.acid, 3);
         }else if (entity instanceof EntityItem) {
             if (!(entity instanceof EntityFluidCrafting))
                 entity.setDead();

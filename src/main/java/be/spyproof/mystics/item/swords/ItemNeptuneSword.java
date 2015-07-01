@@ -3,13 +3,14 @@ package be.spyproof.mystics.item.swords;
 import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
+import be.spyproof.mystics.util.PlayerHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by Spyproof.
@@ -24,12 +25,12 @@ public class ItemNeptuneSword extends BoundSword
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    public void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
-        super.addInformation(itemStack, player, list, b);
-        addHiddenTooltip(list, "\u00A7fRight click ability:");
-        addHiddenTooltip(list, Names.Colors.NEPTUNE + "Give yourself");
-        addHiddenTooltip(list, Names.Colors.NEPTUNE + "Regeneration");
+        super.addShiftTooltip(itemStack, player, map, b);
+        map.put("\u00A7fLeft click ability:", 1);
+        map.put(Names.Colors.NEPTUNE + "Give yourself", 3);
+        map.put(Names.Colors.NEPTUNE + "Regeneration", 4);
     }
 
     @Override
@@ -44,7 +45,8 @@ public class ItemNeptuneSword extends BoundSword
         try {
             super.onItemRightClick(itemStack, world, player);
         } catch (IllegalArgumentException e) {
-            return itemStack;
+            if (!world.isRemote)
+                PlayerHelper.messagePlayer(player, e.getMessage());
         }
 
         if (itemStack.getItemDamage() == getMaxDamage())
@@ -56,7 +58,9 @@ public class ItemNeptuneSword extends BoundSword
                 return itemStack;
 
             player.addPotionEffect(new PotionEffect(Potion.regeneration.getId(), 100, 2));
-            itemStack.setItemDamage(itemStack.getItemDamage()+1);
+
+            if (!player.capabilities.isCreativeMode)
+                itemStack.setItemDamage(itemStack.getItemDamage()+1);
         }
 
 

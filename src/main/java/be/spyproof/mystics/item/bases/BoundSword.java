@@ -16,6 +16,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,7 +36,12 @@ public class BoundSword extends BoundTool
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
     {
         super.addInformation(itemStack, player, list, b);
-        list.add("\u00A7fCharges: " + (itemStack.getMaxDamage() - itemStack.getItemDamage()) + "/" + itemStack.getMaxDamage());
+    }
+
+    protected void addTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
+    {
+        super.addTooltip(itemStack, player, map, b);
+        map.put("\u00A7fCharges: " + (itemStack.getMaxDamage() - itemStack.getItemDamage()) + "/" + itemStack.getMaxDamage(), 3);
     }
 
     public float getDamage()
@@ -61,7 +67,7 @@ public class BoundSword extends BoundTool
      * the damage on the stack.
      */
     @Override
-    public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase player)
+    public boolean hitEntity(ItemStack itemStack, EntityLivingBase player, EntityLivingBase target)
     {
         if (target instanceof EntityPlayer)
             if (((EntityPlayer) target).capabilities.isCreativeMode)
@@ -115,7 +121,7 @@ public class BoundSword extends BoundTool
      * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
      */
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) throws NullPointerException
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) throws IllegalArgumentException
     {
         super.onItemRightClick(itemStack, world, player);
         player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));

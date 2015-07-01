@@ -68,7 +68,11 @@ public class LightningEntity extends EntityLightningBolt
                     Entity entity = (Entity)list.get(l);
                     if (this.creator != null && this.creator.getUniqueID()!= entity.getUniqueID())
                         if (!net.minecraftforge.event.ForgeEventFactory.onEntityStruckByLightning(entity, this))
+                        {
                             entity.onStruckByLightning(this);
+                            if (entity instanceof EntityLivingBase && this.lightningState == 0)
+                                ((EntityLivingBase) entity).setHealth(((EntityLivingBase) entity).getHealth() - 4);
+                        }
                 }
             }
         }

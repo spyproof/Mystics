@@ -2,6 +2,7 @@ package be.spyproof.mystics.item.bases;
 
 import be.spyproof.mystics.reference.Textures;
 import be.spyproof.mystics.util.NBTHelper;
+import be.spyproof.mystics.util.PlayerHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
@@ -86,6 +87,8 @@ public class BoundArmor extends ItemArmor
                 {
                     player.inventory.setInventorySlotContents(i, null);
                     player.inventory.addItemStackToInventory(itemStack);
+                    if (!world.isRemote)
+                        PlayerHelper.messagePlayer(player, "&cYou are not the owner of this armor!");
                     return;
                 }
         }

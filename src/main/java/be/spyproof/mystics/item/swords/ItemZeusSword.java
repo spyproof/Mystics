@@ -1,18 +1,16 @@
 package be.spyproof.mystics.item.swords;
 
-import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.entity.LightningEntity;
+import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
 import be.spyproof.mystics.util.PlayerHelper;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
+import java.util.HashMap;
 
 /**
  * Created by Spyproof.
@@ -23,15 +21,15 @@ public class ItemZeusSword extends BoundSword
     {
         super();
         this.setUnlocalizedName(Names.Items.ZEUS_SWORD);
-        this.setMaxDamage(5);
+        this.setMaxDamage(15);
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    public void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
-        super.addInformation(itemStack, player, list, b);
-        addHiddenTooltip(list, "\u00A7fRight click ability:");
-        addHiddenTooltip(list, Names.Colors.ZEUS + "Summon lightning");
+        super.addShiftTooltip(itemStack, player, map, b);
+        map.put("\u00A7fLeft click ability:", 1);
+        map.put(Names.Colors.ZEUS + "Summon lightning", 3);
     }
 
     @Override
@@ -46,34 +44,31 @@ public class ItemZeusSword extends BoundSword
         try {
             super.onItemRightClick(itemStack, world, player);
         } catch (IllegalArgumentException e) {
-            return itemStack;
-        }
-
-        if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
-        {
-            MovingObjectPosition mop = PlayerHelper.getLookPos(player);
-            //TODO if you cant hurt players, home into enities
-
-            if (itemStack.getItemDamage() == getMaxDamage())
-                return itemStack;
-
-            itemStack.setItemDamage(itemStack.getItemDamage()+1);
-
             if (!world.isRemote)
-                world.addWeatherEffect(new LightningEntity(world, mop.blockX, mop.blockY + 1, mop.blockZ, player));
+                PlayerHelper.messagePlayer(player, e.getMessage());
         }
 
         return itemStack;
     }
 
     @Override
-    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
+    public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase player)
     {
-        if (super.onLeftClickEntity(stack, player, entity))
+        if (super.hitEntity(itemStack, player, target))
             return true;
 
-        if (new Random().nextInt(10) == 1)
-            player.worldObj.playSoundEffect(entity.posX, entity.posY, entity.posZ, "ambient.weather.thunder", 10.0F, 0.8F + player.worldObj.rand.nextFloat() * 0.2F);
+        if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))
+        {
+            if (itemStack.getItemDamage() == getMaxDamage())
+                return false;
+
+            if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
+                itemStack.setItemDamage(itemStack.getItemDamage()+1);
+
+            if (!player.worldObj.isRemote)
+                player.worldObj.addWeatherEffect(new LightningEntity(player.worldObj, target.posX, target.posY, target.posZ, player));
+        }
+
         return false;
     }
 }

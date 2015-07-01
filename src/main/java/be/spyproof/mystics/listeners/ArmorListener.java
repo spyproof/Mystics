@@ -1,9 +1,11 @@
 package be.spyproof.mystics.listeners;
 
-import be.spyproof.mystics.handler.GodlyDamageSource;
-import be.spyproof.mystics.item.armor.*;
+import be.spyproof.mystics.handler.MysticDamageSource;
+import be.spyproof.mystics.item.armor.AetherArmor;
+import be.spyproof.mystics.item.armor.HadesArmor;
+import be.spyproof.mystics.item.armor.MedusaArmor;
+import be.spyproof.mystics.item.armor.ZeusArmor;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
@@ -84,7 +86,7 @@ public class ArmorListener
 
             if (foundSet.equals("medusa"))
             {
-                if (event.source == GodlyDamageSource.acid)
+                if (event.source == MysticDamageSource.acid)
                     event.setCanceled(true);
                 return;
             }
@@ -92,7 +94,7 @@ public class ArmorListener
 
             if (foundSet.equals("zeus"))
             {
-                if (event.source == GodlyDamageSource.electric)
+                if (event.source == MysticDamageSource.electric)
                     event.setCanceled(true);
                 try {
                     Vec3 vec = event.entityLiving.getLookVec();

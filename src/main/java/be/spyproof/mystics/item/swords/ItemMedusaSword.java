@@ -4,13 +4,14 @@ import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.potions.MysticPotions;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.util.NBTHelper;
+import be.spyproof.mystics.util.PlayerHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by Spyproof.
@@ -25,12 +26,12 @@ public class ItemMedusaSword extends BoundSword
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    public void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
-        super.addInformation(itemStack, player, list, b);
-        addHiddenTooltip(list, "\u00A7fLeft click ability:");
-        addHiddenTooltip(list, Names.Colors.MEDUSA + "Prevent target");
-        addHiddenTooltip(list, Names.Colors.MEDUSA + "from moving");
+        super.addShiftTooltip(itemStack, player, map, b);
+        map.put("\u00A7fLeft click ability:", 1);
+        map.put(Names.Colors.MEDUSA + "Prevent target", 3);
+        map.put(Names.Colors.MEDUSA + "from moving", 4);
     }
 
     @Override
@@ -42,7 +43,13 @@ public class ItemMedusaSword extends BoundSword
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) throws NullPointerException
     {
-        return super.onItemRightClick(itemStack, world, player);
+        try {
+            super.onItemRightClick(itemStack, world, player);
+        } catch (IllegalArgumentException e) {
+            if (!world.isRemote)
+                PlayerHelper.messagePlayer(player, e.getMessage());
+        }
+        return itemStack;
     }
 
     @Override
@@ -59,7 +66,9 @@ public class ItemMedusaSword extends BoundSword
             if (target.isPotionActive(MysticPotions.freezeResist) || target.isPotionActive(MysticPotions.freeze))
                 return false;
             MysticPotions.freeze.onApply(target, new PotionEffect(MysticPotions.freeze.getId(), 100, 4));
-            itemStack.setItemDamage(itemStack.getItemDamage()+1);
+
+            if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
+                itemStack.setItemDamage(itemStack.getItemDamage()+1);
         }
 
         return true;

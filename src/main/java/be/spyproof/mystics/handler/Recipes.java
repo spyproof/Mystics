@@ -20,10 +20,10 @@ public class Recipes
         vanillaCrafting();
         fluidCrafting();
         rightClickRecipies();
-        vanillaRepairs();
+        craftingTableRepairs();
     }
 
-    private void vanillaRepairs()
+    private void craftingTableRepairs()
     {
         GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.crystals, 1, 0)));
         GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.crystals, 1, 1)));

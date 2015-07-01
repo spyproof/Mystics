@@ -1,7 +1,6 @@
 package be.spyproof.mystics.item.bases;
 
 import be.spyproof.mystics.creativeTab.CreativeTabGodSwords;
-import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.reference.Textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -11,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Spyproof.
@@ -48,15 +47,67 @@ public class BaseItem extends Item
     {
         super.addInformation(itemStack, player, list, b);
 
+        HashMap<String, Integer> tooltip = new HashMap<String, Integer>();
+
+        addTooltip(itemStack, player, tooltip, b);
+        addToList(list, tooltip);
+
+        tooltip.clear();
+        addShiftTooltip(itemStack, player, tooltip, b);
+        if (tooltip.size() != 0)
+        {
+            if (GuiScreen.isShiftKeyDown())
+            {
+                addToList(list, tooltip);
+            }else{
+                if (!GuiScreen.isCtrlKeyDown())
+                    list.add("\u00A7fPress <\u00A77Shift\u00A7f>");
+            }
+        }
+
+        tooltip.clear();
+        addControlTooltip(itemStack, player, tooltip, b);
+        if (tooltip.size() != 0)
+        {
+            if (GuiScreen.isCtrlKeyDown())
+            {
+                addToList(list, tooltip);
+            }else{
+                if (!GuiScreen.isShiftKeyDown())
+                    list.add("\u00A7fPress <\u00A77Ctrl\u00A7f>");
+            }
+        }
     }
 
-    protected void addHiddenTooltip(List list, String tooltip)
+    protected void addToList(List list, Map<String, Integer> map)
     {
-        String shiftMessage = "\u00A7fPress <Shift>";
-        if (GuiScreen.isShiftKeyDown())
-            list.add(tooltip);
-        else if (!list.contains(shiftMessage))
-            list.add(shiftMessage);
+        List<Integer> priorities = new ArrayList<Integer>();
+
+        for (int i : map.values())
+            if (!priorities.contains(i))
+                priorities.add(i);
+
+        Collections.sort(priorities);
+
+        for (int priority : priorities)
+            for (String s : map.keySet())
+                if (map.get(s) == priority)
+                    list.add(s);
+    }
+
+    protected void addTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
+    {
+
+    }
+
+    protected void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
+    {
+
+    }
+
+    protected void addControlTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
+    {
+
     }
 
     /**

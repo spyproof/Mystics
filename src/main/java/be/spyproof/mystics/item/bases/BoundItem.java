@@ -1,15 +1,13 @@
 package be.spyproof.mystics.item.bases;
 
 import be.spyproof.mystics.util.NBTHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by Spyproof.
@@ -26,7 +24,7 @@ public class BoundItem extends BaseItem
     {
         if (isOwner(itemStack, player))
         {
-            if (player.isSneaking() && NBTHelper.isOwner(itemStack, player))
+            if (player.isSneaking())
             {
                 if (NBTHelper.getBoolean(itemStack, "isActive"))
                     NBTHelper.setBoolean(itemStack, "isActive", false);
@@ -37,7 +35,10 @@ public class BoundItem extends BaseItem
             return itemStack;
         }
         else
-            throw new IllegalArgumentException("Not the owner!");
+        {
+            player.setItemInUse(itemStack, itemStack.getMaxItemUseDuration());
+            throw new IllegalArgumentException("&cYou are not the owner of this sword!");
+        }
     }
 
     @Override
@@ -72,14 +73,36 @@ public class BoundItem extends BaseItem
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean b)
+    protected void addTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
-        if (NBTHelper.getBoolean(itemStack, "isActive"))
-            list.add("\u00A7aActivated");
+        super.addTooltip(itemStack, player, map, b);
+        /*if (NBTHelper.getBoolean(itemStack, "isActive"))
+            map.put("\u00A7aActivated", 1);
         else
-            list.add("\u00A7cDeactivated");
+            map.put("\u00A7cDeactivated", 1);*/
 
-        list.add("\u00A7fOwner: " + NBTHelper.getOwnerName(itemStack));
+        map.put("\u00A7fOwner: " + NBTHelper.getOwnerName(itemStack), 2);
+    }
+
+    @Override
+    protected void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
+    {
+        super.addShiftTooltip(itemStack, player, map, b);
+        if (NBTHelper.getBoolean(itemStack, "isActive"))
+            map.put("\u00A7aActivated", 1);
+        else
+            map.put("\u00A7cDeactivated", 1);
+    }
+
+    @Override
+    protected void addControlTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
+    {
+        super.addControlTooltip(itemStack, player, map, b);
+        if (NBTHelper.getBoolean(itemStack, "isActive"))
+            return;
+
+        map.put("\u00A77Sneak + right click", 1);
+        map.put("\u00A77To activate", 2);
+
     }
 }
