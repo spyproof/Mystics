@@ -65,7 +65,9 @@ public class ItemMedusaSword extends BoundSword
         {
             if (target.isPotionActive(MysticPotions.freezeResist) || target.isPotionActive(MysticPotions.freeze))
                 return false;
-            MysticPotions.freeze.onApply(target, new PotionEffect(MysticPotions.freeze.getId(), 100, 4));
+
+            if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
+                MysticPotions.freeze.onApply(target, new PotionEffect(MysticPotions.freeze.getId(), 100, 4));
 
             if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
                 itemStack.setItemDamage(itemStack.getItemDamage()+1);

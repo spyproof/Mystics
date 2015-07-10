@@ -1,7 +1,6 @@
 package be.spyproof.mystics.init;
 
 import be.spyproof.mystics.item.armor.*;
-import be.spyproof.mystics.item.bases.BoundArmor;
 import be.spyproof.mystics.item.bases.BoundSword;
 import be.spyproof.mystics.item.craftingcomponents.BottledFluid;
 import be.spyproof.mystics.item.craftingcomponents.Crystals;
@@ -20,7 +19,6 @@ public class RegisterGodItems
     public static final BoundSword medusaSword = new ItemMedusaSword();
     public static final BoundSword aetherSword = new ItemAetherSword();
     public static final BoundSword neptuneSword = new ItemNeptuneSword();
-    public static final BoundSword testSword = new ItemTestSword();
 
     public static final AetherArmor aetherHelmet = new AetherArmor(ItemArmor.ArmorMaterial.DIAMOND, 0);
     public static final AetherArmor aetherChestplate = new AetherArmor(ItemArmor.ArmorMaterial.DIAMOND, 1);
@@ -66,7 +64,6 @@ public class RegisterGodItems
         GameRegistry.registerItem(medusaSword, Names.Items.MEDUSA_SWORD);
         GameRegistry.registerItem(aetherSword, Names.Items.AETHER_SWORD);
         GameRegistry.registerItem(neptuneSword, Names.Items.NEPTUNE_SWORD);
-        GameRegistry.registerItem(testSword, Names.Items.TEST_SWORD);
     }
 
     private void registerArmor()

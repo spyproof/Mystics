@@ -59,10 +59,11 @@ public class ItemAetherSword extends BoundSword
         if (itemStack.getItemDamage() == getMaxDamage())
             return true;
 
-        itemStack.setItemDamage(itemStack.getItemDamage()+1);
+        if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
+            itemStack.setItemDamage(itemStack.getItemDamage()+1);
 
         if (NBTHelper.getBoolean(itemStack, "isActive"))
-            if (player instanceof EntityPlayer && !((EntityPlayer) player).capabilities.isCreativeMode)
+            if (target instanceof EntityPlayer && !((EntityPlayer) target).capabilities.isCreativeMode)
                 target.motionY = target.motionY + 1;
 
         return true;

@@ -28,7 +28,7 @@ public class ItemNeptuneSword extends BoundSword
     public void addShiftTooltip(ItemStack itemStack, EntityPlayer player, HashMap map, boolean b)
     {
         super.addShiftTooltip(itemStack, player, map, b);
-        map.put("\u00A7fLeft click ability:", 1);
+        map.put("\u00A7fRight click ability:", 1);
         map.put(Names.Colors.NEPTUNE + "Give yourself", 3);
         map.put(Names.Colors.NEPTUNE + "Regeneration", 4);
     }

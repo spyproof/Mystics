@@ -54,7 +54,7 @@ public class ItemZeusSword extends BoundSword
     @Override
     public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase player)
     {
-        if (super.hitEntity(itemStack, player, target))
+        if (super.hitEntity(itemStack, target, player))
             return true;
 
         if (!player.isSneaking() && NBTHelper.getBoolean(itemStack, "isActive") && NBTHelper.isOwner(itemStack, player))

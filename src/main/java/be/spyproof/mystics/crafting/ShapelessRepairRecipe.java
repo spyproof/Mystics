@@ -1,9 +1,6 @@
 package be.spyproof.mystics.crafting;
 
-import be.spyproof.mystics.Mystics;
 import be.spyproof.mystics.reference.Reference;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapelessRecipes;
@@ -74,6 +71,7 @@ public class ShapelessRepairRecipe extends ShapelessRecipes
     @Override
     public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting)
     {
+        //TODO indicate in NEI that it repairs
         ItemStack repairedItem = null;
         for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++)
         {
@@ -107,13 +105,15 @@ public class ShapelessRepairRecipe extends ShapelessRecipes
         if (stack1.getItem() != stack2.getItem())
             return false;
 
-        if (stack1.getHasSubtypes())
+        /*if (stack1.getHasSubtypes())
         {
             if (stack1.getItemDamage() == stack2.getItemDamage())
                 return true;
         }else{
             return true;
-        }
+        }*/
+        if (stack1.getItemDamage() == stack2.getItemDamage())
+                return true;
 
         return false;
     }

@@ -79,7 +79,7 @@ public class Mystics
     public void init(FMLInitializationEvent event)
     {
         new BlockHelper();
-        proxy.registerRendering();
+        //proxy.registerRendering();
 
         //Load potions
         MysticPotions.load();

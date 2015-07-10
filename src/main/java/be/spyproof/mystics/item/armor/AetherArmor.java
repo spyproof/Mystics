@@ -4,8 +4,6 @@ import be.spyproof.mystics.item.bases.BoundArmor;
 import be.spyproof.mystics.potions.MysticPotions;
 import be.spyproof.mystics.reference.Names;
 import be.spyproof.mystics.reference.Textures;
-import be.spyproof.mystics.util.NBTHelper;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -13,10 +11,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
 
 import java.util.List;
 
@@ -94,19 +90,7 @@ public class AetherArmor extends BoundArmor
                 pieces++;
         }
 
-
-        /*if (pieces == 4)
-        {
-            player.capabilities.allowFlying = true;
-        }else //if (!player.capabilities.isCreativeMode)
-        {
-            player.capabilities.allowFlying = false;
-        }*/
-
         if (pieces == 4)
-        {
-            //player.addPotionEffect();
             MysticPotions.fly.onApply(player, new PotionEffect(MysticPotions.fly.getId(), 5, 0));
-        }
     }
 }

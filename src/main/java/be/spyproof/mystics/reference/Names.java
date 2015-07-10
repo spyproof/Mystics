@@ -71,7 +71,7 @@ public class Names
         public static final String HADES = "\u00A74";
         public static final String MEDUSA = "\u00A72";
         public static final String AETHER = "\u00A7e";
-        public static final String NEPTUNE = "\u00A79";
+        public static final String NEPTUNE = "\u00A7b";
 
         public static final String[] SUBTYPES = {ZEUS, HADES, MEDUSA, AETHER, NEPTUNE};
     }

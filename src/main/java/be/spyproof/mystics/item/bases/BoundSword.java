@@ -25,6 +25,7 @@ import java.util.List;
 public class BoundSword extends BoundTool
 {
     private float damage;
+    //TODO Fix getting damage from mining blocks
 
     public BoundSword()
     {
@@ -67,7 +68,7 @@ public class BoundSword extends BoundTool
      * the damage on the stack.
      */
     @Override
-    public boolean hitEntity(ItemStack itemStack, EntityLivingBase player, EntityLivingBase target)
+    public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase player)
     {
         if (target instanceof EntityPlayer)
             if (((EntityPlayer) target).capabilities.isCreativeMode)
@@ -76,14 +77,9 @@ public class BoundSword extends BoundTool
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_)
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase p_150894_7_)
     {
-        if ((double)p_150894_3_.getBlockHardness(p_150894_2_, p_150894_4_, p_150894_5_, p_150894_6_) != 0.0D)
-        {
-            p_150894_1_.damageItem(2, p_150894_7_);
-        }
-
-        return true;
+        return false;
     }
 
     /**
@@ -166,6 +162,14 @@ public class BoundSword extends BoundTool
         ItemStack mat = super.getToolMaterial().getRepairItemStack();
         if (mat != null && net.minecraftforge.oredict.OreDictionary.itemMatches(mat, repairStack, false)) return true;
         return super.getIsRepairable(itemStack, repairStack);
+    }
+
+    @Override
+    public boolean showDurabilityBar(ItemStack stack)
+    {
+        if (stack.getItemDamage() == 0)
+            return false;
+        return true;
     }
 
     /**

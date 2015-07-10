@@ -25,11 +25,11 @@ public class Recipes
 
     private void craftingTableRepairs()
     {
-        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.crystals, 1, 0)));
-        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.crystals, 1, 1)));
-        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.medusaSword), new ItemStack(RegisterGodItems.medusaSword), new ItemStack(RegisterGodItems.crystals, 1, 2)));
-        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.crystals, 1, 3)));
-        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.crystals, 1, 4)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.zeusSword), new ItemStack(RegisterGodItems.zeusSword, 1, RegisterGodItems.zeusSword.getMaxDamage()), new ItemStack(RegisterGodItems.crystals, 1, 0)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.hadesSword), new ItemStack(RegisterGodItems.hadesSword, 1, RegisterGodItems.hadesSword.getMaxDamage()), new ItemStack(RegisterGodItems.crystals, 1, 1)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.medusaSword), new ItemStack(RegisterGodItems.medusaSword, 1, RegisterGodItems.medusaSword.getMaxDamage()), new ItemStack(RegisterGodItems.crystals, 1, 2)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.aetherSword), new ItemStack(RegisterGodItems.aetherSword, 1, RegisterGodItems.aetherSword.getMaxDamage()), new ItemStack(RegisterGodItems.crystals, 1, 3)));
+        GameRegistry.addRecipe(new ShapelessRepairRecipe(new ItemStack(RegisterGodItems.neptuneSword), new ItemStack(RegisterGodItems.neptuneSword, 1, RegisterGodItems.neptuneSword.getMaxDamage()), new ItemStack(RegisterGodItems.crystals, 1, 4)));
     }
 
     private void vanillaCrafting()

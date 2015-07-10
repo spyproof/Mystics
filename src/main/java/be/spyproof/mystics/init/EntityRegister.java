@@ -1,7 +1,6 @@
 package be.spyproof.mystics.init;
 
 import be.spyproof.mystics.Mystics;
-import be.spyproof.mystics.entity.EntityTest;
 import be.spyproof.mystics.entity.ItemEntityFireproof;
 import be.spyproof.mystics.reference.IDs;
 import be.spyproof.mystics.reference.Names;
@@ -21,7 +20,7 @@ public class EntityRegister
     public static void registerEntity()
     {
         createEntity(ItemEntityFireproof.class, Names.Entities.ITEM_FIRE_IMMUNE, IDs.Entities.ITEM_FIRE_IMMUNE, 1);
-        createEgg(createEntity(EntityTest.class, "TestMob", IDs.Mobs.ENTITY_TEST, 1), 0xFFFFFF, 0x000000);
+        //createEgg(createEntity(EntityTest.class, "TestMob", IDs.Mobs.ENTITY_TEST, 1), 0xFFFFFF, 0x000000);
     }
 
     public static int createEntity(Class entityClass, String name, int id, int updateFreq)
